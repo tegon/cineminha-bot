@@ -24,7 +24,7 @@ class Crawler
   end
 
   def sessions_date
-    date = Date.parse(Time.now.to_s) + 1
+    date = Date.parse(Time.now.to_s)# + 1
     date.strftime('%Y%m%d')
   end
 
@@ -33,13 +33,14 @@ class Crawler
     html = Nokogiri::HTML(response.response.body)
     sessions = []
     html.css('.content-tabela-horario .tabela-horario-local').map do |cine_html|
-      cine = Cine.new(cine.css('.nome-local-espetaculo').text, cine.css('.bairro-local-espetaculo').text)
+      cine = Cine.new(cine_html.css('.nome-local-espetaculo').text, cine_html.css('.bairro-local-espetaculo').text)
       cine_html.css('.lista-horarios-local').map do |session_html|
         session_html.css('.mv-th-sc-it').each do |inner|
           sessions << Session.new(cine, session_html.css('h6.tipo-sessao').text, inner.css('.btn-lb-hour').text, inner.css('a').attr('sala-data').text)
         end
       end
     end
+
     sessions
   end
 end

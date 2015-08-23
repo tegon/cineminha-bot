@@ -12,20 +12,44 @@ class IngressoApp < Sinatra::Application
     content_type :json
   end
 
+  helpers do
+    def check_auth_token
+      halt 403 unless Token.exists?(params[:token])
+    end
+
+    def set_session(message)
+      @last_command = session[message.from.id][:last_command] if session[message.from.id]
+      session[message.from.id] = { last_command: message.text } if is_command?(message.text)
+    end
+
+    def is_command?(text)
+      text.match(/\//)
+    end
+
+    def is_city?(text)
+      return unless is_command?(text)
+      exists = false
+
+      State.all.map do |state|
+        city = state.cities.find{ |city| text == "/#{ city.permalink }" }
+        exists = !city.nil?
+        break if exists
+      end
+
+      exists
+    end
+  end
+
   get '/:token' do
-    halt 403 unless Token.exists?(params[:token])
+    check_auth_token
+
     token = ENV['TELEGRAM_TOKEN']
 
     Telegram::Bot::Client.run(token) do |bot|
       bot.listen do |message|
+        set_session(message)
+
         p 'message', message
-
-        if session[message.from.id]
-          last_command = session[message.from.id][:last_command]
-        else
-          session[message.from.id] = { last_command: message.text } if message.text.match(/\//)
-        end
-
         p 'session', session
 
         case message.text
@@ -35,15 +59,25 @@ class IngressoApp < Sinatra::Application
         when /\/cidades/
           answers = Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: State.all.map(&:name), one_time_keyboard: true)
           bot.api.sendMessage(chat_id: message.chat.id, text: 'Escolhe um estado aí, pfv', reply_markup: answers)
-        when /aracatuba/
-          crawler = Crawler.new('aracatuba')
-          answers = Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: crawler.movies.map(&:name), one_time_keyboard: true)
-          bot.api.sendMessage(chat_id: message.chat.id, text: crawler.movies.map(&:name).join("\n"), reply_markup: answers)
         else
-          case last_command
-          when /\/cidades/ then
+          case
+          when is_city?(message.text)
+            crawler = Crawler.new(message.text.gsub('/', ''))
+            answers = Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: crawler.movies.map(&:name), one_time_keyboard: true)
+            bot.api.sendMessage(chat_id: message.chat.id, text: crawler.movies.map(&:name).join("\n"), reply_markup: answers)
+          when @last_command && is_city?(@last_command)
+            crawler = Crawler.new(@last_command.gsub('/', ''))
+            movie = crawler.movies.find{ |m| m.name == message.text }
+            sessions = crawler.sessions(movie)
+            bot.api.sendMessage(chat_id: message.chat.id, text: sessions.map(&:room).join("\n"))
+          when @last_command && @last_command.match(/\/cidades/)
             state = State.all.find{ |s| s.name == message.text }
-            bot.api.sendMessage(chat_id: message.chat.id, text: state.cities.map(&:name).join("\n"))
+            text = state.cities.map do |city|
+              "#{ city.name }: /#{ city.permalink }"
+            end
+
+            bot.api.sendMessage(chat_id: message.chat.id, text: text.join("\n"))
+            session[message.from.id] = nil
           else
             bot.api.sendMessage(chat_id: message.chat.id, text: 'vish!')
           end
