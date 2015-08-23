@@ -69,14 +69,17 @@ class IngressoApp < Sinatra::Application
             crawler = Crawler.new(@last_command.gsub('/', ''))
             movie = crawler.movies.find{ |m| m.name == message.text }
             sessions = crawler.sessions(movie)
-            bot.api.sendMessage(chat_id: message.chat.id, text: sessions.map(&:room).join("\n"))
+            text = sessions.map do |session|
+              "Horário: #{ session.time }\n Sala: #{ session.room }\n Cinema: #{ session.cine.name }\n Tipo: #{ session.type }"
+            end
+            bot.api.sendMessage(chat_id: message.chat.id, text: text.join("\n"))
           when @last_command && @last_command.match(/\/cidades/)
             state = State.all.find{ |s| s.name == message.text }
             text = state.cities.map do |city|
               "#{ city.name }: /#{ city.permalink }"
             end
 
-            bot.api.sendMessage(chat_id: message.chat.id, text: text.join("\n"))
+            bot.api.sendMessage(chat_id: message.chat.id, text: text.join("\n \n"))
             session[message.from.id] = nil
           else
             bot.api.sendMessage(chat_id: message.chat.id, text: 'vish!')
