@@ -6,6 +6,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'redis'
 require 'redis-sinatra'
+require 'rack/session/redis'
 require 'telegram/bot'
 require 'nokogiri'
 
