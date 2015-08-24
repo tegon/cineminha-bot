@@ -2,7 +2,7 @@ class Crawler
   include HTTParty
 
   base_uri 'http://www.ingresso.com'
-  # debug_output $stderr
+  debug_output $stderr
 
   attr_accessor :city
 
@@ -24,7 +24,7 @@ class Crawler
   end
 
   def sessions_date
-    date = Date.parse(Time.now.to_s)# + 1
+    date = Date.parse(Time.now.to_s) + 1
     date.strftime('%Y%m%d')
   end
 

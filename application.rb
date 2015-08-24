@@ -18,6 +18,7 @@ class IngressoApp < Sinatra::Application
     end
 
     def set_session(message)
+      # session[message.from.id] = nil
       @last_command = session[message.from.id][:last_command] if session[message.from.id]
       session[message.from.id] = { last_command: message.text } if is_command?(message.text)
     end
@@ -62,21 +63,35 @@ class IngressoApp < Sinatra::Application
         else
           case
           when is_city?(message.text)
-            crawler = Crawler.new(message.text.gsub('/', ''))
-            answers = Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: crawler.movies.map(&:name), one_time_keyboard: true)
-            bot.api.sendMessage(chat_id: message.chat.id, text: crawler.movies.map(&:name).join("\n"), reply_markup: answers)
-          when @last_command && is_city?(@last_command)
-            crawler = Crawler.new(@last_command.gsub('/', ''))
-            movie = crawler.movies.find{ |m| m.name == message.text }
-            sessions = crawler.sessions(movie)
-            text = sessions.map do |session|
-              "Horário: #{ session.time }\n Sala: #{ session.room }\n Cinema: #{ session.cine.name }\n Tipo: #{ session.type }"
+            movies = settings.cache.fetch("#{ message.text }/movies/#{ Date.parse(Time.now.to_s).strftime('%Y%m%d') }") do
+              crawler = Crawler.new(message.text.gsub('/', ''))
+              crawler.movies
             end
-            bot.api.sendMessage(chat_id: message.chat.id, text: text.join("\n"))
+
+            answers = Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: movies.map(&:name), one_time_keyboard: true)
+            bot.api.sendMessage(chat_id: message.chat.id, text: 'Aí garoto! Só escolher um filme agora', reply_markup: answers)
+          when @last_command && is_city?(@last_command)
+            movies = settings.cache.fetch("#{ @last_command }/movies/#{ Date.parse(Time.now.to_s).strftime('%Y%m%d') }") do
+              crawler = Crawler.new(@last_command.gsub('/', ''))
+              crawler.movies
+            end
+
+            text = settings.cache.fetch("#{ @last_command }/#{ message.text }/#{ Date.parse(Time.now.to_s).strftime('%Y%m%d') }") do
+              movie = movies.find{ |m| m.name == message.text }
+              crawler = Crawler.new(@last_command.gsub('/', ''))
+              sessions = crawler.sessions(movie)
+              sessions.map do |session|
+                "Horário: #{ session.time }\n #{ session.room }\n #{ session.cine.name } - #{ session.cine.location } \n #{ session.type }"
+              end
+            end
+
+            bot.api.sendMessage(chat_id: message.chat.id, text: text.join("\n \n"))
           when @last_command && @last_command.match(/\/cidades/)
-            state = State.all.find{ |s| s.name == message.text }
-            text = state.cities.map do |city|
-              "#{ city.name }: /#{ city.permalink }"
+            text = settings.cache.fetch("#{ @last_command }/#{ message.text }") do
+              state = State.all.find{ |s| s.name == message.text }
+              state.cities.map do |city|
+                "#{ city.name }: /#{ city.permalink }"
+              end
             end
 
             bot.api.sendMessage(chat_id: message.chat.id, text: text.join("\n \n"))
