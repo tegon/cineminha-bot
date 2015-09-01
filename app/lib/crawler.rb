@@ -10,6 +10,14 @@ class Crawler
     @city = city
   end
 
+  def states
+    response = self.class.get('/aracatuba/home')
+    html = Nokogiri::HTML(response.response.body)
+    text = html.css('script')[27].content
+    states_string = text.to_s.split('=')[1].gsub('estados', '').gsub(';', '').gsub('\'', '').strip
+    JSON.parse(states_string)
+  end
+
   def movies
     response = self.class.get("/#{ @city }/home/filtro/recuperadadosfiltro", query: { tipoevento: 'cinema' })
     response.parsed_response['Espetaculos'].map do |movie|

@@ -1,14 +1,14 @@
 module CacheHelper
   def states_cache_key
-    'cache/states'
+    "cache/states/#{ today_timestamp }"
   end
 
   def movies_cache_key(city)
-    "cache/#{ city }/movies/#{ today_timestamp }"
+    "cache#{ city }/movies/#{ today_timestamp }"
   end
 
   def sessions_cache_key(movie, city)
-    "cache/#{ city }/movies/#{ movie }/sessions/#{ today_timestamp }"
+    "cache#{ city }/movies/#{ movie }/sessions/#{ today_timestamp }"
   end
 
   def cities_cache_key(state)

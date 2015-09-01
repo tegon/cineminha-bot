@@ -59,7 +59,13 @@ class CineminhaBot < Sinatra::Application
 
   def states
     settings.cache.fetch(states_cache_key) do
-      State.all
+      crawler = Crawler.new(nil)
+      crawler.states.map do |state|
+        cities = state.last.map do |city|
+          City.new(city['Nome'], city['ChaveUrl'])
+        end
+        State.new(state.first, cities)
+      end
     end
   end
 
