@@ -13,7 +13,7 @@ class Crawler
   def states
     response = self.class.get('/aracatuba/home')
     html = Nokogiri::HTML(response.response.body)
-    text = html.css('script')[27].content
+    text = html.css('script')[25].content
     states_string = text.to_s.split('=')[1].gsub('estados', '').gsub(';', '').gsub('\'', '').strip
     JSON.parse(states_string)
   end

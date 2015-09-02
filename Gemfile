@@ -12,3 +12,9 @@ group :development do
   gem 'tux', '0.3.0'
   gem 'puma', '2.7.1'
 end
+
+group :test do
+  gem 'minitest', '5.5'
+  gem 'webmock', '1.21.0'
+  gem 'database_cleaner', '1.4.0'
+end
