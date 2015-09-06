@@ -2,7 +2,7 @@ class CineminhaBot < Sinatra::Application
   options = { host: ENV['OPENSHIFT_REDIS_HOST'], port: ENV['OPENSHIFT_REDIS_PORT'], password: ENV['REDIS_PASSWORD'] }
 
   set :cache, Sinatra::Cache::RedisStore.new(options)
-  use Rack::Session::Redis, options
+  use Rack::Session::Redis, redis_server: "redis://#{ options[:password] }@#{ options[:host] }:#{ options[:port] }/0/rack:session"
 
   configure :development do
     register Sinatra::Reloader
