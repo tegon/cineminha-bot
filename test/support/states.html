@@ -1,0 +1,1740 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR">
+<head>
+    <script type="text/javascript">
+        var $buoop = { vs: { i: 8, f: 15, o: 12.1, s: 5.1 } };
+        $buoop.ol = window.onload;
+        window.onload = function () {
+            try { if ($buoop.ol) $buoop.ol(); } catch (e) { }
+            var e = document.createElement("script");
+            e.setAttribute("type", "text/javascript");
+            e.setAttribute("src", "//browser-update.org/update.js");
+            document.body.appendChild(e);
+        }
+    </script>
+
+    <link rel="icon" type="image/png" href="/Content/Catalogo/Images/favicon.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/Catalogo/Images/favicon.ico" />
+    <title>Home - Ara&#231;atuba - Ingresso.com</title>
+    <meta charset="UTF-8"><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"aa5a269d07","applicationID":"2986710","transactionName":"blQEbUdQDUcCU0wKV1ceJ1pBWAxaTHhXDl16XghNR14PWAZCFypWXVQe","queueTime":1,"applicationTime":77,"ttGuid":"465E1A6B6D5CC3FD","agent":"js-agent.newrelic.com/nr-686.min.js"}</script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UgEOVFFXGwEJXFdVBgE="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:23,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,t(5),window.onerror=e;try{throw new Error}catch(f){"stack"in f&&(t(1),t(2),"addEventListener"in window&&t(3),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)&&t(4),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:10,2:9,3:7,4:11,5:3,6:24,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t){t("loader").features.ins=!0},{loader:"G9z0Bl"}],6:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1),i=t(2);t("loader").features.stn=!0,t(3),n.on("fn-start",function(t){var e=t[0];e instanceof Event&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof Event&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),i.on("fn-start",function(){this.bstStart=Date.now()}),i.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:10,2:9,3:8,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],7:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=t("ee").create(),i=t(1)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:25,ee:"QJf3ax",gos:"7eSDFh"}],8:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState"],"-")},{1:25,ee:"QJf3ax"}],9:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:25,ee:"QJf3ax"}],10:[function(t,e){function n(t,e,n){t[0]=o(t[0],"fn-",null,n)}var r=t("ee").create(),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:25,ee:"QJf3ax"}],11:[function(t,e){function n(){f.inPlace(this,p,"fn-")}function r(t,e){f.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}function i(t,e){for(var n in t)e[n]=t[n];return e}var a=t("ee").create(),s=t(1),c=t(2),f=c(a),u=c(s),d=window.XMLHttpRequest,p=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=a,window.XMLHttpRequest=function(t){var e=new d(t);try{a.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",o),e.addEventListener("readystatechange",n,!1)}catch(r){try{a.emit("internal-error",[r])}catch(i){}}return e},i(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,f.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),a.on("send-xhr-start",r),a.on("open-xhr-start",r)},{1:7,2:25,ee:"QJf3ax"}],12:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=n(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(e.cat=d.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,o("xhr",[e,r,this.startTime])}}}function n(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=e,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,e){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=n(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{a.emit("internal-error",[n])}catch(r){}}};for(var u=0;c>u;u++)e.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:13,3:11,4:7,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],13:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],14:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:23,2:24,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):void(r.q&&(r.q[t]||(r.q[t]=[]),r.q[t].push(e)))}var r=t("ee").create();e.exports=n,n.ee=r,r.q={}},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){e in t||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document;t(2);var u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-686.min.js"},p=e.exports={offset:i(),origin:u,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()])},{1:23,2:14,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],23:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],24:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],25:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:24,ee:"QJf3ax"}]},{},["G9z0Bl",4,12,6,5]);</script>
+
+    <meta name="author" content="Ingresso.com">
+    <meta name="apple-itunes-app" content="app-id=395159864">
+    <meta name="google-play-app" content="app-id=br.eti.faces.ingresso">
+    <meta name="msApplication-PackageFamilyName" content="49276Ingresso.com.Ingresso.com" />
+    <meta name="msApplication-ID" content="ingresso-com" />
+    <meta name="msapplication-TileImage" content="http://storage.ingresso.com/catalogo/img/icon175x175.png" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+
+    <link rel="stylesheet" type="text/css" href="/content/catalogo/style-95bae15e.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Catalogo/jquery.smartbanner.css" />
+    <!--[if IE]><link href="/Content/Catalogo/ie.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+
+    <script type="text/javascript">
+        var NomePagina = 'home';
+    </script>
+
+    <script type="text/javascript" src="/scripts/vendor-e1446393.js"></script>
+    <script type="text/javascript" src="/scripts/GoogleTagManager-351c4c7c.min.js"></script>
+    <script type="text/javascript" src="https://partner.googleadservices.com/gampad/google_service.js"></script>
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js?hl=pt'></script>
+    <script type="text/javascript" src="/scripts/GruposFavoritos-ddcd5899.min.js"></script>
+    <script type="text/javascript">
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+
+        (function () {
+            var useSSL = 'https:' == document.location.protocol;
+            var src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+            document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+        })();
+
+        $(window).load(function () {
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.type = "text/javascript";
+                js.async = true;
+                js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=431758946894401";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            analytics.page();
+        });
+    </script>
+    <script type="text/javascript">
+    !function () {
+        var analytics = window.analytics = window.analytics || []; if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
+            analytics.invoked = !0; analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "group", "track", "ready", "alias", "page", "once", "off", "on"]; analytics.factory = function (t) { return function () { var e = Array.prototype.slice.call(arguments); e.unshift(t); analytics.push(e); return analytics } }; for (var t = 0; t < analytics.methods.length; t++) { var e = analytics.methods[t]; analytics[e] = analytics.factory(e) } analytics.load = function (t) { var e = document.createElement("script"); e.type = "text/javascript"; e.async = !0; e.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.segment.com/analytics.js/v1/" + t + "/analytics.min.js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(e, n) }; analytics.SNIPPET_VERSION = "3.0.1";
+            analytics.load("N245C7cBpl4Kc1D7kidcdlI8yhvJxsJ2");
+        }
+    }();
+    </script>
+    <script type="text/javascript" src="/scripts/GoogleDFPBannerZones-a75366f4.min.js"></script>
+    <script type="text/javascript">
+        googletag.cmd.push(function () {
+            googletag.pubads().setTargeting('Ambiente', window.location.host.split('.')[0]);
+            googletag.pubads().setTargeting('Bairro', '');
+googletag.pubads().setTargeting('Cidade', 'aracatuba');
+googletag.pubads().setTargeting('Classifica', '');
+googletag.pubads().setTargeting('DataSessao', '');
+googletag.pubads().setTargeting('espeID', '');
+googletag.pubads().setTargeting('Espetaculo', '');
+googletag.pubads().setTargeting('Estado', 'sp');
+googletag.pubads().setTargeting('Genero', '');
+googletag.pubads().setTargeting('Grupo', '');
+googletag.pubads().setTargeting('HoraSessao', '');
+googletag.pubads().setTargeting('Local', '');
+googletag.pubads().setTargeting('Pagina', 'home');
+googletag.pubads().setTargeting('Pais', 'br');
+googletag.pubads().setTargeting('Parceria', 'home');
+googletag.pubads().setTargeting('TipoEvento', 'home');
+googletag.pubads().setTargeting('Hotsite', '');
+
+            googletag.pubads().enableSyncRendering();
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+
+    </script>
+
+    <!-- smartbanner -->
+    <script type="text/javascript" src="/scripts/jquery.smartbanner-1b4b449b.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.smartbanner({
+                daysHidden: 1,
+                daysReminder: 1,
+                title:'Ingresso.com' ,
+                price: 'GRATUITO',
+                inAppStore: 'App Store',
+                inGooglePlay: 'Google Play',
+                inAmazonAppStore: 'Amazon Appstore',
+                inWindowsStore: 'Windows Store',
+                button: 'BAIXAR',
+                iOSUniversalApp: true,
+            })
+        })
+    </script>
+
+
+
+    <script type="text/javascript">
+        var HostCookie = '.ingresso.com';
+        var DitoID = 'MjAxMy0wNy0yOSAxNDowMzo0NiAtMDMwMEluZ3Jlc3NvLmNvbTIw';
+    </script>
+    <script type="text/javascript" src="/scripts/Dito-27d02a76.min.js"></script>
+    <script type="text/javascript">
+        var layoutDito = function (){
+            var DitoCookieUpdate = {
+                "uf": "SP",
+                "cidade": "Araçatuba",
+                "parceria": "home",
+                "categoria": ""
+            };
+
+            atualizaCookieDito("", DitoCookieUpdate);
+        }();
+    </script>
+
+</head>
+<body>
+    <script>
+        dataLayer = [{
+            'pagina': 'home'
+        }];
+    </script>
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-WPQ87G"
+            height="0" width="0" style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+        new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+    '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-WPQ87G');</script>
+    <!-- End Google Tag Manager -->
+
+
+
+    <!-- ingresso_home|internas_1x1 -->
+    <div id='div-gpt-ad-1348690411007-0'>
+        <script type="text/javascript">
+            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1348690411007-0'); });
+        </script>
+    </div>
+    <!-- br_dhtml -->
+    <div id='div-gpt-ad-1348690411007-1'>
+        <script type="text/javascript">
+            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1348690411007-1'); });
+        </script>
+    </div>
+    <!-- br_float -->
+    <div id='div-gpt-ad-1348690411007-2'>
+        <script type="text/javascript">
+            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1348690411007-2'); });
+        </script>
+    </div>
+
+
+<script>
+    var urlHome = 'http://www.ingresso.com/aracatuba/home';
+    var urlVerificaLogin = 'https://wwws.ingresso.com/aracatuba/home/login/verificalogin';
+    var urlValidaVendaEmpresa = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validavendaempresa';
+    var urlVendaEmpresa = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/vendaempresa';
+    var urlValidaVivoValoriza = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validavivovaloriza';
+    var urlVivoValoriza = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/vivovaloriza';
+    var urlValidaMeiaBradesco = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validameiabradesco';
+    var urlMeiaBradesco = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/meiabradesco';
+    var urlNet = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/meianet';
+    var urlValidaMeiaNet = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validameianet';
+    var urlValidaSuperSaver = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validasupersaver';
+    var urlSuperSaver = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/supersaver';
+    var urlValidaCinemarkMania = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validacinemarkmania';
+    var urlCinemarkMania = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/cinemarkmania';
+    var urlValidaMastercardSurpreenda = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validamastercardsurpreenda';
+    var urlMastercardSurpreenda = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/mastercardsurpreenda';
+    var urlCarregaMapaLocais = 'http://www.ingresso.com/aracatuba/home/componentes/carregapontosmapa';
+    var urlGravaFavorito = 'https://wwws.ingresso.com/aracatuba/home/local/grava-favorito';
+    var urlExcluirFavorito = 'https://wwws.ingresso.com/aracatuba/home/local/exclui-favorito';
+    var urlBuscaFavoritos = 'https://wwws.ingresso.com/aracatuba/home/local/busca-favoritos';
+    var urlBuscaPontosVenda = 'http://www.ingresso.com/aracatuba/home/institucional/pontos-venda/busca-pontos-venda';
+    var urlRecuperaDadosFiltro = 'http://www.ingresso.com/aracatuba/home/filtro/recuperadadosfiltro';
+    var urlEscolhaMapaAssentos = '/sessao/mapa-assentos';
+    var urlSessaoMapaAssentosApi = '/sessao/mapa-assentos-api';
+    var urlEscolhaBuscaPlanta = '/sessao/mapa-planta';
+    var urlEscolhaBuscaPlantaNova = '/sessao/mapa-planta-nova';
+    var urlEscolhaListarIngressos = '/sessao/ingressos';
+    var urlEscolhaAdicionaDesconto = 'https://wwws.ingresso.com/aracatuba/home/escolha/adicionadesconto';
+    var urlHomeEnviarFiqueInformado = 'http://www.ingresso.com/aracatuba/home/home/enviarfiqueinformado';
+    var urlHotsiteBuscaSessaoExterna = 'http://www.ingresso.com/aracatuba/home/hotsite/buscasessaoexterna';
+    var urlLocalRecuperarComentarios = 'http://www.ingresso.com/aracatuba/home/local/recuperarcomentarios';
+    var urlLocalInserirComentario = 'https://wwws.ingresso.com/aracatuba/home/local/inserircomentario';
+    var urlEspetaculoInserirComentario = 'https://wwws.ingresso.com/aracatuba/home/espetaculo/inserircomentario';
+    var urlEspetaculoComentarios = 'http://www.ingresso.com/aracatuba/home/Espetaculo/Comentarios';
+    var urlPromocaoCadastrarResposta = 'https://wwws.ingresso.com/aracatuba/home/promocao/cadastrarresposta';
+    var urlEspetaculoEnviarIndicar = 'http://www.ingresso.com/aracatuba/home/espetaculo/enviarindicar';
+    var urlEspetaculoHorarios = '/aracatuba/home/espetaculo/horarios';
+    var urlEspetaculoDetalheSessao = '/aracatuba/home/espetaculo/detalhe-sessao';
+    var urlEspetaculoListarIngressos = '/aracatuba/home/espetaculo/listar-ingressos';
+    var urlEspetaculoVerificaUsuario = 'https://wwws.ingresso.com/aracatuba/home/espetaculo/verifica-usuario';
+    var urlLogin = 'https://wwws.ingresso.com/cliente/#/';
+</script>
+
+    <div id="page">
+        <header class="wrapper-header">
+
+<script type="text/javascript">
+    var ufSelecionada = 'SP';
+    var cidadeSelecionada = 'Araçatuba';
+</script>
+<div class="container-header-topo">
+    <section class="logo-ingresso">
+        <a href="http://www.ingresso.com/aracatuba/home" class="logo-img" id="LogoHead" class="logo" title="Ingresso.com"></a>
+    </section>
+
+
+<section class="container-busca">
+    <span id="picto-busca"></span>
+    <input id="txtBusca34b3c3fd-6cf4-4670-ab00-a2e4d6eb4b05" class="texto-busca" placeholder="Pesquise por filmes, shows, teatros..." type="text">
+    <button id="btnBusca34b3c3fd-6cf4-4670-ab00-a2e4d6eb4b05" class="btn-site btn-buscar">
+        <span class="icon-search"></span>
+    </button>
+</section>
+<script type="text/javascript">
+    var cache34b3c3fd = {};
+
+    function submitOnEnterBusca(event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $('#btnBusca34b3c3fd-6cf4-4670-ab00-a2e4d6eb4b05').click();
+        }
+    }
+
+    $(window).load(function () {
+        $('#txtBusca34b3c3fd-6cf4-4670-ab00-a2e4d6eb4b05').keypress(submitOnEnterBusca);
+    });
+
+    $('#btnBusca34b3c3fd-6cf4-4670-ab00-a2e4d6eb4b05').click(function () {
+        var texto = $('#txtBusca34b3c3fd-6cf4-4670-ab00-a2e4d6eb4b05').val();
+        if (texto === "") {
+            alert("É necessário informar algum argumento para a consulta.");
+            return;
+        }
+        var chave = { 'palavra-chave': texto };
+        atualizaCookieDito("Busca", chave);
+        submitDito("buscou", ['Busca']);
+        dataLayer.push({ 'pagina': NomePagina, 'event': 'Busca', 'filtro': texto });
+        window.location.href = 'http://www.ingresso.com/aracatuba/home/busca' + '?q=' + texto;
+    });
+
+    $('#txtBusca34b3c3fd-6cf4-4670-ab00-a2e4d6eb4b05').autocomplete({
+        source: function (request, response) {
+            var term = request.term;
+
+            if (term in cache34b3c3fd) {
+                response(cache34b3c3fd [term]);
+                return;
+            }
+
+            $.ajax({
+                url: 'http://www.ingresso.com/aracatuba/home/busca/autocomplete',
+                data: { textoBuscado: $('#txtBusca34b3c3fd-6cf4-4670-ab00-a2e4d6eb4b05').val() },
+                dataType: 'json',
+                type: 'POST',
+                success: function (data) {
+                    if (data.length > 0) {
+                        var obj = $.map(data, function(a) {
+                                    return {
+                                        label: a.Nome,
+                                        value: a.Nome,
+                                        id: a.Id
+                                    }});
+
+                        cache34b3c3fd [term] = obj;
+
+                        response(obj);
+                    }
+                }
+            });
+        },
+        minLength: 3,
+        select: function(event, ui) {
+            window.location.href = 'http://www.ingresso.com/aracatuba/home/espetaculo/' + ui.item.id;
+        },
+    });
+</script>
+
+    <section class="wrapper-login">
+        <div class="box-login escolha-opcao">
+            <span></span>
+            <section class="deslogado">
+                <a class="lnk-login lnk-cadastre" href="https://wwws.ingresso.com/cliente/#/cadastrar">Cadastre-se</a>
+                <a class="lnk-login lnk-faca-login" href="#">minha conta</a>
+                <a class="lnk-login lnk-atendimento" href="http://www.ingresso.com/aracatuba/home/institucional/atendimento/">atendimento</a>
+            </section>
+            <section class="logado">
+                <a class="lnk-login lnk-minha-conta">Minha Conta</a>
+                <a id="box-sair" class="lnk-login lnk-sair" href="https://wwws.ingresso.com/cliente/#/logout">sair</a>
+                <a id="box-atendimento" class="lnk-login lnk-atendimento" href="http://www.ingresso.com/aracatuba/home/institucional/atendimento/">atendimento</a>
+            </section>
+        </div>
+    </section>
+</div>
+<div class="drop-down-header">
+
+<div class="drop-down drop-down-cidade" style="display:none">
+    <div class="select-escolha-cidade">
+        <div class="frm-customselect">
+            <select class="select ng-pristine" id="estado">
+                <option value="Estado" id="estado">Estado</option>
+            </select>
+        </div>
+    </div>
+    <div class="select-escolha-cidade">
+        <div class="frm-customselect">
+            <select class="select ng-pristine" id="cidade">
+                <option value="Cidade" id="cidade">Cidade</option>
+            </select>
+        </div>
+    </div>
+    <button class="btn-site btn-trocar-cidade">Trocar Cidade</button>
+</div>
+<script type="text/javascript">
+    var estados = '{"AC":[{"Nome":"Rio Branco","ChaveUrl":"rio-branco"}],"AL":[{"Nome":"Arapiraca","ChaveUrl":"arapiraca"},{"Nome":"Maceió","ChaveUrl":"maceio"}],"AM":[{"Nome":"Manaus","ChaveUrl":"manaus"}],"AP":[{"Nome":"Macapá","ChaveUrl":"macapa"}],"BA":[{"Nome":"Itapetininga","ChaveUrl":"itapetininga"},{"Nome":"Salvador","ChaveUrl":"salvador"},{"Nome":"Serrinha","ChaveUrl":"serrinha"},{"Nome":"Vitória da Conquista","ChaveUrl":"vitoria-da-conquista"}],"CE":[{"Nome":"Fortaleza","ChaveUrl":"fortaleza"},{"Nome":"Maracanaú","ChaveUrl":"maracanau"}],"DF":[{"Nome":"Brasília","ChaveUrl":"brasilia"},{"Nome":"Taguatinga","ChaveUrl":"taguatinga"}],"ES":[{"Nome":"Cariacica","ChaveUrl":"cariacica"},{"Nome":"Serra","ChaveUrl":"serra"},{"Nome":"Vila Velha","ChaveUrl":"vila-velha"},{"Nome":"Vitória","ChaveUrl":"vitoria"}],"GO":[{"Nome":"Anápolis","ChaveUrl":"anapolis"},{"Nome":"Aparecida de Goiânia","ChaveUrl":"aparecida-de-goiania"},{"Nome":"Goiânia","ChaveUrl":"goiania"},{"Nome":"Rio Verde","ChaveUrl":"rio-verde"}],"MA":[{"Nome":"Imperatriz","ChaveUrl":"imperatriz"},{"Nome":"São Luís","ChaveUrl":"sao-luis"}],"MG":[{"Nome":"Belo Horizonte","ChaveUrl":"belo-horizonte"},{"Nome":"Betim","ChaveUrl":"betim"},{"Nome":"Contagem","ChaveUrl":"contagem"},{"Nome":"Ipatinga","ChaveUrl":"ipatinga"},{"Nome":"Juiz de Fora","ChaveUrl":"juiz-de-fora"},{"Nome":"Mariana","ChaveUrl":"mariana"},{"Nome":"Patos de Minas","ChaveUrl":"patos-de-minas"},{"Nome":"Poços de Caldas","ChaveUrl":"pocos-de-caldas"},{"Nome":"Pouso Alegre","ChaveUrl":"pouso-alegre"},{"Nome":"Uberaba","ChaveUrl":"uberaba"},{"Nome":"Uberlândia","ChaveUrl":"uberlandia"}],"MS":[{"Nome":"Campo Grande","ChaveUrl":"campo-grande"},{"Nome":"Dourados","ChaveUrl":"dourados"}],"MT":[{"Nome":"Cuiabá","ChaveUrl":"cuiaba"}],"PA":[{"Nome":"Belém","ChaveUrl":"belem"},{"Nome":"Castanhal","ChaveUrl":"castanhal"},{"Nome":"Marabá","ChaveUrl":"maraba"}],"PB":[{"Nome":"João Pessoa","ChaveUrl":"joao-pessoa"}],"PE":[{"Nome":"Cabo de Santo Agostinho","ChaveUrl":"cabo-de-santo-agostinho"},{"Nome":"Caruaru","ChaveUrl":"caruaru"},{"Nome":"Jaboatão dos Guararapes","ChaveUrl":"jaboatao-dos-guararapes"},{"Nome":"Recife","ChaveUrl":"recife"}],"PR":[{"Nome":"Campo Largo","ChaveUrl":"campo-largo"},{"Nome":"Castro","ChaveUrl":"castro"},{"Nome":"Curitiba","ChaveUrl":"curitiba"},{"Nome":"Londrina","ChaveUrl":"londrina"},{"Nome":"Maringá","ChaveUrl":"maringa"},{"Nome":"Paranaguá","ChaveUrl":"paranagua"},{"Nome":"Ponta Grossa","ChaveUrl":"ponta-grossa"},{"Nome":"São José dos Pinhais","ChaveUrl":"sao-jose-dos-pinhais"}],"RJ":[{"Nome":"Angra dos Reis","ChaveUrl":"angra-dos-reis"},{"Nome":"Barra do Piraí","ChaveUrl":"barra-do-pirai"},{"Nome":"Barra Mansa","ChaveUrl":"barra-mansa"},{"Nome":"Cabo Frio","ChaveUrl":"cabo-frio"},{"Nome":"Campos dos Goytacazes","ChaveUrl":"campos-dos-goytacazes"},{"Nome":"Duque de Caxias","ChaveUrl":"duque-de-caxias"},{"Nome":"Macaé","ChaveUrl":"macae"},{"Nome":"Niterói","ChaveUrl":"niteroi"},{"Nome":"Nova Friburgo","ChaveUrl":"nova-friburgo"},{"Nome":"Nova Iguaçu","ChaveUrl":"nova-iguacu"},{"Nome":"Petrópolis","ChaveUrl":"petropolis"},{"Nome":"Resende","ChaveUrl":"resende"},{"Nome":"Rio de Janeiro","ChaveUrl":"rio-de-janeiro"},{"Nome":"São Gonçalo","ChaveUrl":"sao-goncalo"},{"Nome":"São João de Meriti","ChaveUrl":"sao-joao-de-meriti"},{"Nome":"Teresópolis","ChaveUrl":"teresopolis"},{"Nome":"Três Rios","ChaveUrl":"tres-rios"},{"Nome":"Valença","ChaveUrl":"valenca"},{"Nome":"Volta Redonda","ChaveUrl":"volta-redonda"}],"RN":[{"Nome":"Natal","ChaveUrl":"natal"}],"RO":[{"Nome":"Porto Velho","ChaveUrl":"porto-velho"}],"RR":[{"Nome":"Boa Vista","ChaveUrl":"boa-vista"}],"RS":[{"Nome":"Canoas","ChaveUrl":"canoas"},{"Nome":"Caxias do Sul","ChaveUrl":"caxias-do-sul"},{"Nome":"Novo Hamburgo","ChaveUrl":"novo-hamburgo"},{"Nome":"Pelotas","ChaveUrl":"pelotas"},{"Nome":"Porto Alegre","ChaveUrl":"porto-alegre"},{"Nome":"Rio Grande","ChaveUrl":"rio-grande"},{"Nome":"São Leopoldo","ChaveUrl":"sao-leopoldo"}],"SC":[{"Nome":"Balneário Camboriu","ChaveUrl":"balneario-camboriu"},{"Nome":"Blumenau","ChaveUrl":"blumenau"},{"Nome":"Florianópolis","ChaveUrl":"florianopolis"},{"Nome":"Joinville","ChaveUrl":"joinville"},{"Nome":"Lages","ChaveUrl":"lages"},{"Nome":"São José","ChaveUrl":"sao-jose"},{"Nome":"Tubarão","ChaveUrl":"tubarao"}],"SE":[{"Nome":"Aracaju","ChaveUrl":"aracaju"}],"SP":[{"Nome":"Araçatuba","ChaveUrl":"aracatuba"},{"Nome":"Araraquara","ChaveUrl":"araraquara"},{"Nome":"Atibaia","ChaveUrl":"atibaia"},{"Nome":"Barretos","ChaveUrl":"barretos"},{"Nome":"Barueri","ChaveUrl":"barueri"},{"Nome":"Bauru","ChaveUrl":"bauru"},{"Nome":"Botucatu","ChaveUrl":"botucatu"},{"Nome":"Brotas","ChaveUrl":"brotas"},{"Nome":"Campinas","ChaveUrl":"campinas"},{"Nome":"Caraguatatuba","ChaveUrl":"caraguatatuba"},{"Nome":"Carapicuíba","ChaveUrl":"carapicuiba"},{"Nome":"Cotia","ChaveUrl":"cotia"},{"Nome":"Franca","ChaveUrl":"franca"},{"Nome":"Guaratinguetá","ChaveUrl":"guaratingueta"},{"Nome":"Guarulhos","ChaveUrl":"guarulhos"},{"Nome":"Hortolândia","ChaveUrl":"hortolandia"},{"Nome":"Indaiatuba","ChaveUrl":"indaiatuba"},{"Nome":"Itapevi","ChaveUrl":"itapevi"},{"Nome":"Itu","ChaveUrl":"itu"},{"Nome":"Jacarei","ChaveUrl":"jacarei"},{"Nome":"Jaú","ChaveUrl":"jau"},{"Nome":"Jundiaí","ChaveUrl":"jundiai"},{"Nome":"Limeira","ChaveUrl":"limeira"},{"Nome":"Marília","ChaveUrl":"marilia"},{"Nome":"Mauá","ChaveUrl":"maua"},{"Nome":"Mogi das Cruzes","ChaveUrl":"mogi-das-cruzes"},{"Nome":"Mogi Guaçu","ChaveUrl":"mogi-guacu"},{"Nome":"Osasco","ChaveUrl":"osasco"},{"Nome":"Pindamonhangaba","ChaveUrl":"pindamonhangaba"},{"Nome":"Piracicaba","ChaveUrl":"piracicaba"},{"Nome":"Praia Grande","ChaveUrl":"praia-grande"},{"Nome":"Presidente Prudente","ChaveUrl":"presidente-prudente"},{"Nome":"Ribeirão Preto","ChaveUrl":"ribeirao-preto"},{"Nome":"Santa Bárbara Do Oeste","ChaveUrl":"santa-barbara-do-oeste"},{"Nome":"Santo André","ChaveUrl":"santo-andre"},{"Nome":"Santos","ChaveUrl":"santos"},{"Nome":"São Bernardo do Campo","ChaveUrl":"sao-bernardo-do-campo"},{"Nome":"São Caetano do Sul","ChaveUrl":"sao-caetano-do-sul"},{"Nome":"São Carlos","ChaveUrl":"sao-carlos"},{"Nome":"São José do Rio Preto","ChaveUrl":"sao-jose-do-rio-preto"},{"Nome":"São José dos Campos","ChaveUrl":"sao-jose-dos-campos"},{"Nome":"São Paulo","ChaveUrl":"sao-paulo"},{"Nome":"Sorocaba","ChaveUrl":"sorocaba"},{"Nome":"Suzano","ChaveUrl":"suzano"},{"Nome":"Taboão da Serra","ChaveUrl":"taboao-da-serra"},{"Nome":"Taubaté","ChaveUrl":"taubate"},{"Nome":"Valinhos","ChaveUrl":"valinhos"}],"TO":[{"Nome":"Palmas","ChaveUrl":"palmas"}]}';
+    estados = JSON.parse(estados);
+    var urlOrigin = 'http://www.ingresso.com';
+    var parceria = 'home';
+</script>
+    <div class="drop-down drop-down-login" style="display:none">
+        <ul class="lista-login">
+            <li class="lnk-drop-down-login"><a href="https://wwws.ingresso.com/aracatuba/home/meus-ingressos">Meus Ingressos</a></li>
+            <li class="lnk-drop-down-login"><a href="https://wwws.ingresso.com/cliente/#/minha-conta/editar">Editar</a></li>
+            <li class="lnk-drop-down-login sair"><a href="https://wwws.ingresso.com/cliente/#/logout">Sair</a></li>
+        </ul>
+    </div>
+</div>
+<!--drop-down-header-->
+<div class="container-menu-header">
+
+
+<section class="wrapper-escolha-cidade">
+    <div class="container-cidade-selecionada escolha-opcao">
+        <span class="icon-location"></span>
+        <h6 class="cidade-selecionada">Ara&#231;atuba</h6>
+    </div>
+</section>
+<nav class="menu">
+    <ul class="lista-menu">
+                <li class="lnk-menu lnk-cinema " style="width: 50%; min-width: 50%;">
+                    <a href="http://www.ingresso.com/aracatuba/home/cinema" onclick="MenuPrincipalHead('Cinema')">
+                        Cinema
+                    </a>
+                </li>
+                <li class="lnk-menu lnk-promocao " style="width: 50%; min-width: 50%;">
+                    <a href="http://www.ingresso.com/aracatuba/home/promocao" onclick="MenuPrincipalHead('Promo&#231;&#227;o')">
+                        Promo&#231;&#227;o
+                    </a>
+                </li>
+    </ul>
+</nav>
+<script type="text/javascript">
+    function mqm() {
+        if (window.innerWidth > 480) {
+            var qtdMenu = $('li.lnk-menu').length;
+            $('li.lnk-menu').width((100 / qtdMenu) + "%");
+        } else {
+            var qtdMenu = $('li.lnk-menu').length;
+            var first = qtdMenu > 3 ? Math.floor(qtdMenu / 2) + (qtdMenu % 2): qtdMenu;
+            $("li.lnk-menu").slice(0, first).width((100 / first) + "%");
+            $("li.lnk-menu").slice(first, qtdMenu).width((100 / (qtdMenu - first)) + "%");
+        }
+    }
+    $(document).ready(mqm);
+    $(window).resize(mqm);
+
+</script>
+</div>
+
+<section class="area-anuncio">
+  <div class="adSense">
+            <!-- ingresso_home|internas_728x90_top -->
+            <div id="div-gpt-ad-1348690411007-8">
+                <script type="text/javascript">
+                    googletag.cmd.push(function () { googletag.display('div-gpt-ad-1348690411007-8'); });
+                </script>
+            </div>
+        </div>
+  <div class="adsense-240-90">
+    <!--  -->
+            <div id="div-gpt-ad-1418823992406-23">
+                <script type="text/javascript">
+                    googletag.cmd.push(function () { googletag.display('div-gpt-ad-1418823992406-23'); });
+                </script>
+            </div>
+  </div>
+</section>
+
+<section class="toogle-filtro-mobile fechado">
+  <a></a>
+</section>
+
+        </header>
+        <div id="content">
+
+
+        <script type="text/javascript">
+            var exibeFiltro = true;
+        </script>
+
+<script type="text/javascript">
+    var tipoEventoPadraoFiltro = 'cinema';
+</script>
+<div id="filtroContainer">
+    <div id="filtroNormal">
+        <ul class="filtroHeader">
+            <li id="menuCategoria" class="itemFiltro first" data-tipo="categoria" data-ordem="1">
+                <div class="explain 1tour">Filtrar Por</div>
+                <div class="txtFiltro open">Categoria</div>
+            </li>
+            <li id="menuGenero" class="itemFiltro middle" data-tipo="genero" data-ordem="2">
+                <a class="fecharFiltro" style="display: none;">x</a>
+                <div class="txtFiltro 2tour">Gênero</div>
+                <div class="menuItensFiltro" style="display: none;">
+                    <div class="linksContainer mCustomScrollbar">
+                        <ul></ul>
+                    </div>
+                </div>
+            </li>
+            <li id="menuEspetaculo" class="itemFiltro middle" data-tipo="espetaculo" data-ordem="3">
+                <a id="fecharFiltroEspetaculo" class="fecharFiltro" style="display: none;">x</a>
+                <div class="txtFiltro 3tour">Espetáculo</div>
+                <div class="menuItensFiltro maior" style="display: none;">
+                    <div class="linksContainer mCustomScrollbar">
+                        <ul></ul>
+                    </div>
+                </div>
+            </li>
+            <li id="menuBairro" class="itemFiltro middle" data-tipo="bairro" data-ordem="4">
+                <a class="fecharFiltro" style="display: none;">x</a>
+                <div class="txtFiltro 4tour">Bairro</div>
+                <div class="menuItensFiltro" style="display: none;">
+                    <div class="linksContainer mCustomScrollbar">
+                        <ul></ul>
+                    </div>
+                </div>
+            </li>
+            <li id="menuLocal" class="itemFiltro middle" data-tipo="local" data-ordem="5">
+                <a class="fecharFiltro" style="display: none;">x</a>
+                <div class="txtFiltro 5tour">Local</div>
+                <div class="menuItensFiltro maior" style="display: none;">
+                    <div class="linksContainer mCustomScrollbar local">
+                        <ul></ul>
+                    </div>
+                </div>
+            </li>
+            <li id="menuData" class="itemFiltro middle" data-tipo="data" data-ordem="6">
+                <a class="fecharFiltro" style="display: none;">x</a>
+                <div class="txtFiltro 6tour">Data</div>
+                <div class="menuItensFiltro" style="display: none;">
+                    <div class="linksContainer mCustomScrollbar">
+                        <ul></ul>
+                    </div>
+                </div>
+            </li>
+            <li id="menuBuscar" class="buscarBtn normal" data-ordem="7">
+                <a class="btnBuscar" href="#">Buscar</a>
+            </li>
+        </ul>
+    </div>
+    <div id="filtroMobile">
+        <div class="setaFiltroMobile setaBranca">
+            <select id="cmbCategoria" class="itemFiltroMobile" data-tipo="categoria">
+                <option>FILTRAR POR CATEGORIA</option>
+                    <option value="cinema">Cinema</option>
+            </select>
+        </div>
+        <div class="setaFiltroMobile">
+            <select id="cmbGenero" class="itemFiltroMobile" data-tipo="genero">
+            </select>
+        </div>
+        <div class="setaFiltroMobile">
+            <select id="cmbEspetaculo" class="itemFiltroMobile" data-tipo="espetaculo">
+            </select>
+        </div>
+        <div class="setaFiltroMobile">
+            <select id="cmdBairro" class="itemFiltroMobile" data-tipo="bairro">
+            </select>
+        </div>
+        <div class="setaFiltroMobile">
+            <select id="cmbLocal" class="itemFiltroMobile" data-tipo="local">
+            </select>
+        </div>
+        <div class="setaFiltroMobile">
+            <select id="cmbData" class="itemFiltroMobile" data-tipo="data">
+            </select>
+        </div>
+        <div class="buscarBtn">
+            <a class="btnBuscar" href="#">Buscar</a>
+        </div>
+    </div>
+</div>
+    <script type="text/javascript">
+        $(".linksContainer").mCustomScrollbar({
+            theme: "dark-thin",
+            autoExpandScrollbar: true,
+            advanced: { autoExpandHorizontalScroll: true }
+        });
+    </script>    <div id="area-2">
+        <div id="area-2-1">
+
+    <section class="highlightBx">
+            <div class="bnnrBx">
+            <ul class="bnnrLt">
+                      <li class="bnnrLi selected" id="bnr0">
+                    <a href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/entrando-numa-roubada" class="bnnrLnk" onclick="DestaqueLinkGA('Clicou no espetáculo');">
+                      <img class="bnnrImg" width="107" height="66" src="https://storage.ingresso.com/img/cinema/cartaz/11321_d.jpg" alt="Entrando Numa Roubada" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_d.jpg'" />
+                      <div class="tit">
+                                    <span class="texto-espetaculo">Entrando Numa Roubada</span>
+                                    <span class="where">O sucesso despontava na carreira dos amigos atores Eric (Julio An...</span>
+                                    <span class="cor-fundo"></span>
+                      </div>
+                    </a>
+                  </li>
+                      <li class="bnnrLi " id="bnr1">
+                    <a href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/ted-2" class="bnnrLnk" onclick="DestaqueLinkGA('Clicou no espetáculo');">
+                      <img class="bnnrImg" width="107" height="66" src="https://storage.ingresso.com/img/cinema/cartaz/11247_d.jpg" alt="Ted 2" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_d.jpg'" />
+                      <div class="tit">
+                                    <span class="texto-espetaculo">Ted 2</span>
+                                    <span class="where">Dessa vez, o urso Ted est&#225; namorando e planeja ter um filho. Mas ...</span>
+                                    <span class="cor-fundo"></span>
+                      </div>
+                    </a>
+                  </li>
+                      <li class="bnnrLi " id="bnr2">
+                    <a href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/o-expresso-do-amanha" class="bnnrLnk" onclick="DestaqueLinkGA('Clicou no espetáculo');">
+                      <img class="bnnrImg" width="107" height="66" src="https://storage.ingresso.com/img/cinema/cartaz/11194_d.jpg" alt="O Expresso do Amanh&#227;" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_d.jpg'" />
+                      <div class="tit">
+                                    <span class="texto-espetaculo">O Expresso do Amanh&#227;</span>
+                                    <span class="where">Um experimento para impedir o aquecimento global falha e uma nova...</span>
+                                    <span class="cor-fundo"></span>
+                      </div>
+                    </a>
+                  </li>
+                      <li class="bnnrLi " id="bnr3">
+                    <a href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/missao-impossivel-nacao-secreta" class="bnnrLnk" onclick="DestaqueLinkGA('Clicou no espetáculo');">
+                      <img class="bnnrImg" width="107" height="66" src="https://storage.ingresso.com/img/cinema/cartaz/10770_d.jpg" alt="Miss&#227;o imposs&#237;vel - Na&#231;&#227;o secreta" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_d.jpg'" />
+                      <div class="tit">
+                                    <span class="texto-espetaculo">Miss&#227;o imposs&#237;vel - Na&#231;&#227;o secreta</span>
+                                    <span class="where">Ethan Hunt (Tom Cruise) descobre que o famoso Sindicato &#233; real, e...</span>
+                                    <span class="cor-fundo"></span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+          </div>
+          <div class="thumbsBx">
+            <ul class="thumbsLt">
+                  <li class="thumbsLi first selected">
+                            <span class="leftArrow">Entrando Numa Roubada</span>
+                            <a href="#bnr0" class="thumbsLnk" onclick="DestaqueLinkGA('Clicou para mudar o destaque');"><img class="thumbsImg" src="https://storage.ingresso.com/img/cinema/cartaz/11321_d.jpg" alt="Entrando Numa Roubada" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_d.jpg'" /></a>
+                        </li>
+                  <li class="thumbsLi first ">
+                            <span class="leftArrow">Ted 2</span>
+                            <a href="#bnr1" class="thumbsLnk" onclick="DestaqueLinkGA('Clicou para mudar o destaque');"><img class="thumbsImg" src="https://storage.ingresso.com/img/cinema/cartaz/11247_d.jpg" alt="Ted 2" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_d.jpg'" /></a>
+                        </li>
+                  <li class="thumbsLi first ">
+                            <span class="leftArrow">O Expresso do Amanh&#227;</span>
+                            <a href="#bnr2" class="thumbsLnk" onclick="DestaqueLinkGA('Clicou para mudar o destaque');"><img class="thumbsImg" src="https://storage.ingresso.com/img/cinema/cartaz/11194_d.jpg" alt="O Expresso do Amanh&#227;" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_d.jpg'" /></a>
+                        </li>
+                  <li class="thumbsLi first ">
+                            <span class="leftArrow">Miss&#227;o imposs&#237;vel - Na&#231;&#227;o secreta</span>
+                            <a href="#bnr3" class="thumbsLnk" onclick="DestaqueLinkGA('Clicou para mudar o destaque');"><img class="thumbsImg" src="https://storage.ingresso.com/img/cinema/cartaz/10770_d.jpg" alt="Miss&#227;o imposs&#237;vel - Na&#231;&#227;o secreta" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_d.jpg'" /></a>
+                        </li>
+            </ul>
+          </div>
+    </section>
+
+    <section class="eventList">
+      <div class="tabsBx">
+        <ul class="tabs">
+                    <li class="tabsLi selected" id="tabsLi0"><a class="tabsLiLnk" href="#item0">EM CARTAZ</a></li>
+                    <li class="tabsLi " id="tabsLi1"><a class="tabsLiLnk" href="#item1">MAIS VISTOS</a></li>
+                    <li class="tabsLi " id="tabsLi2"><a class="tabsLiLnk" href="#item2">EM BREVE</a></li>
+        </ul>
+        <div class="activeTabs">
+          <ul class="contTabs">
+                        <li class="tabCont selected" id="item0">
+
+
+    <h1 class="tit2 titTipoEvento1">
+        <span class="tit2B">
+            <b>Cinema</b>
+            <a class="tit2lnk" href="http://www.ingresso.com/aracatuba/home/cinema">ver todos</a>
+        </span>
+    </h1>
+    <div class="eventListBx">
+        <ul class="eventLt">
+                <li class="evntLi first">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/entrando-numa-roubada" onclick="ConteudoLinkGA('EMCARTAZ', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr0">N&#227;o avaliado</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/11321_iphone.jpg" alt="Entrando Numa Roubada" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">Entrando Numa Roubada</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi ">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/ted-2" onclick="ConteudoLinkGA('EMCARTAZ', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr5">2 Avalia&#231;&#245;es</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/11247_iphone.jpg" alt="Ted 2" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">Ted 2</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi ">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/o-expresso-do-amanha" onclick="ConteudoLinkGA('EMCARTAZ', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr4">3 Avalia&#231;&#245;es</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/11194_iphone.jpg" alt="O Expresso do Amanh&#227;" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">O Expresso do Amanh&#227;</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi ">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/missao-impossivel-nacao-secreta" onclick="ConteudoLinkGA('EMCARTAZ', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr5">15 Avalia&#231;&#245;es</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/10770_iphone.jpg" alt="Miss&#227;o imposs&#237;vel - Na&#231;&#227;o secreta" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">Miss&#227;o imposs&#237;vel - Na&#231;&#227;o secreta</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi last">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/o-pequeno-principe" onclick="ConteudoLinkGA('EMCARTAZ', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr5">10 Avalia&#231;&#245;es</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/11015_iphone.jpg" alt="O Pequeno Pr&#237;ncipe" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">O Pequeno Pr&#237;ncipe</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi first">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/linda-de-morrer" onclick="ConteudoLinkGA('EMCARTAZ', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr3">3 Avalia&#231;&#245;es</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/11110_iphone.jpg" alt="Linda de Morrer" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">Linda de Morrer</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi ">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/shaun-o-carneiro" onclick="ConteudoLinkGA('EMCARTAZ', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr0">N&#227;o avaliado</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/9416_iphone.jpg" alt="Shaun, o carneiro" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">Shaun, o carneiro</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi ">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/o-agente-da-u-n-c-l-e" onclick="ConteudoLinkGA('EMCARTAZ', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr0">N&#227;o avaliado</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/9341_iphone.jpg" alt="O Agente da U.N.C.L.E." onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">O Agente da U.N.C.L.E.</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi ">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/love" onclick="ConteudoLinkGA('EMCARTAZ', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr0">N&#227;o avaliado</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/11328_iphone.jpg" alt="Love" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">Love</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi last">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/corrente-do-mal" onclick="ConteudoLinkGA('EMCARTAZ', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr5">3 Avalia&#231;&#245;es</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/7314_iphone.jpg" alt="Corrente do mal" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">Corrente do mal</span>
+      </span>
+    </a>
+</div>
+                </li>
+        </ul>
+    </div>
+
+<script type="text/javascript">
+    function checkWidth() {
+        var $window = $(window);
+        var $owldemo = $('#owl-demo');
+
+        var windowsize = $window.width();
+        if (windowsize < 800) {
+            $('.eventLt').each(function () {
+                $(this).attr('id', 'owl-demo');
+
+                $(this).owlCarousel({
+                    items: 5,
+                    itemsDesktopSmall: [768, 4],
+                    itemsTablet: [570, 3],
+                    itemsMobile: [480, 1],
+                    navigation: true,
+                    navigationText: false,
+                });
+            });
+        }
+        else {
+            $('.eventLt').each(function () {
+                if ($(this).data('owlCarousel') != undefined) {
+                    $(this).data('owlCarousel').destroy();
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        // Execute on load
+        checkWidth();
+        // Bind event listener
+        $(window).resize(checkWidth);
+    });
+
+    $(window).on('resize', function () {
+        checkWidth();
+    });
+</script>
+
+
+<script type="text/javascript">
+    function checkWidth() {
+        var $window = $(window);
+        var $owldemo = $('#owl-demo');
+
+        var windowsize = $window.width();
+        if (windowsize < 800) {
+            $('.eventLt').each(function () {
+                $(this).attr('id', 'owl-demo');
+
+                $(this).owlCarousel({
+                    items: 5,
+                    itemsDesktopSmall: [768, 4],
+                    itemsTablet: [570, 3],
+                    itemsMobile: [480, 1],
+                    navigation: true,
+                    navigationText: false,
+                });
+            });
+        }
+        else {
+            $('.eventLt').each(function () {
+                if ($(this).data('owlCarousel') != undefined) {
+                    $(this).data('owlCarousel').destroy();
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        // Execute on load
+        checkWidth();
+        // Bind event listener
+        $(window).resize(checkWidth);
+    });
+
+    $(window).on('resize', function () {
+        checkWidth();
+    });
+</script>
+
+
+<script type="text/javascript">
+    function checkWidth() {
+        var $window = $(window);
+        var $owldemo = $('#owl-demo');
+
+        var windowsize = $window.width();
+        if (windowsize < 800) {
+            $('.eventLt').each(function () {
+                $(this).attr('id', 'owl-demo');
+
+                $(this).owlCarousel({
+                    items: 5,
+                    itemsDesktopSmall: [768, 4],
+                    itemsTablet: [570, 3],
+                    itemsMobile: [480, 1],
+                    navigation: true,
+                    navigationText: false,
+                });
+            });
+        }
+        else {
+            $('.eventLt').each(function () {
+                if ($(this).data('owlCarousel') != undefined) {
+                    $(this).data('owlCarousel').destroy();
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        // Execute on load
+        checkWidth();
+        // Bind event listener
+        $(window).resize(checkWidth);
+    });
+
+    $(window).on('resize', function () {
+        checkWidth();
+    });
+</script>               </li>
+                        <li class="tabCont " id="item1">
+
+
+    <h1 class="tit2 titTipoEvento1">
+        <span class="tit2B">
+            <b>Cinema</b>
+            <a class="tit2lnk" href="http://www.ingresso.com/aracatuba/home/cinema">ver todos</a>
+        </span>
+    </h1>
+    <div class="eventListBx">
+        <ul class="eventLt">
+                <li class="evntLi first">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/ted-2" onclick="ConteudoLinkGA('OS MAIS VISTOS', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr5">2 Avalia&#231;&#245;es</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/11247_iphone.jpg" alt="Ted 2" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">Ted 2</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi ">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/o-expresso-do-amanha" onclick="ConteudoLinkGA('OS MAIS VISTOS', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr4">3 Avalia&#231;&#245;es</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/11194_iphone.jpg" alt="O Expresso do Amanh&#227;" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">O Expresso do Amanh&#227;</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi ">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/o-pequeno-principe" onclick="ConteudoLinkGA('OS MAIS VISTOS', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr5">10 Avalia&#231;&#245;es</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/11015_iphone.jpg" alt="O Pequeno Pr&#237;ncipe" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">O Pequeno Pr&#237;ncipe</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi ">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/linda-de-morrer" onclick="ConteudoLinkGA('OS MAIS VISTOS', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr3">3 Avalia&#231;&#245;es</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/11110_iphone.jpg" alt="Linda de Morrer" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">Linda de Morrer</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi last">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/corrente-do-mal" onclick="ConteudoLinkGA('OS MAIS VISTOS', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr5">3 Avalia&#231;&#245;es</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/7314_iphone.jpg" alt="Corrente do mal" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">Corrente do mal</span>
+      </span>
+    </a>
+</div>
+                </li>
+        </ul>
+    </div>
+
+<script type="text/javascript">
+    function checkWidth() {
+        var $window = $(window);
+        var $owldemo = $('#owl-demo');
+
+        var windowsize = $window.width();
+        if (windowsize < 800) {
+            $('.eventLt').each(function () {
+                $(this).attr('id', 'owl-demo');
+
+                $(this).owlCarousel({
+                    items: 5,
+                    itemsDesktopSmall: [768, 4],
+                    itemsTablet: [570, 3],
+                    itemsMobile: [480, 1],
+                    navigation: true,
+                    navigationText: false,
+                });
+            });
+        }
+        else {
+            $('.eventLt').each(function () {
+                if ($(this).data('owlCarousel') != undefined) {
+                    $(this).data('owlCarousel').destroy();
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        // Execute on load
+        checkWidth();
+        // Bind event listener
+        $(window).resize(checkWidth);
+    });
+
+    $(window).on('resize', function () {
+        checkWidth();
+    });
+</script>
+
+
+<script type="text/javascript">
+    function checkWidth() {
+        var $window = $(window);
+        var $owldemo = $('#owl-demo');
+
+        var windowsize = $window.width();
+        if (windowsize < 800) {
+            $('.eventLt').each(function () {
+                $(this).attr('id', 'owl-demo');
+
+                $(this).owlCarousel({
+                    items: 5,
+                    itemsDesktopSmall: [768, 4],
+                    itemsTablet: [570, 3],
+                    itemsMobile: [480, 1],
+                    navigation: true,
+                    navigationText: false,
+                });
+            });
+        }
+        else {
+            $('.eventLt').each(function () {
+                if ($(this).data('owlCarousel') != undefined) {
+                    $(this).data('owlCarousel').destroy();
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        // Execute on load
+        checkWidth();
+        // Bind event listener
+        $(window).resize(checkWidth);
+    });
+
+    $(window).on('resize', function () {
+        checkWidth();
+    });
+</script>
+
+
+<script type="text/javascript">
+    function checkWidth() {
+        var $window = $(window);
+        var $owldemo = $('#owl-demo');
+
+        var windowsize = $window.width();
+        if (windowsize < 800) {
+            $('.eventLt').each(function () {
+                $(this).attr('id', 'owl-demo');
+
+                $(this).owlCarousel({
+                    items: 5,
+                    itemsDesktopSmall: [768, 4],
+                    itemsTablet: [570, 3],
+                    itemsMobile: [480, 1],
+                    navigation: true,
+                    navigationText: false,
+                });
+            });
+        }
+        else {
+            $('.eventLt').each(function () {
+                if ($(this).data('owlCarousel') != undefined) {
+                    $(this).data('owlCarousel').destroy();
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        // Execute on load
+        checkWidth();
+        // Bind event listener
+        $(window).resize(checkWidth);
+    });
+
+    $(window).on('resize', function () {
+        checkWidth();
+    });
+</script>               </li>
+                        <li class="tabCont " id="item2">
+
+
+    <h1 class="tit2 titTipoEvento1">
+        <span class="tit2B">
+            <b>Cinema</b>
+            <a class="tit2lnk" href="http://www.ingresso.com/aracatuba/home/cinema">ver todos</a>
+        </span>
+    </h1>
+    <div class="eventListBx">
+        <ul class="eventLt">
+                <li class="evntLi first">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/atividade-paranormal-5-dimensao-fantasma" onclick="ConteudoLinkGA('EMBREVE', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr0">N&#227;o avaliado</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/11327_iphone.jpg" alt="Atividade paranormal 5 - Dimens&#227;o fantasma" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">Atividade paranormal 5 - Dimens&#227;o fantasma</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi ">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/ferias-frustradas" onclick="ConteudoLinkGA('EMBREVE', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr5">1 Avalia&#231;&#227;o</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/11028_iphone.jpg" alt="F&#233;rias Frustradas" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">F&#233;rias Frustradas</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi ">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/no-coracao-do-mar" onclick="ConteudoLinkGA('EMBREVE', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr5">5 Avalia&#231;&#245;es</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/9342_iphone.jpg" alt="No Cora&#231;&#227;o do Mar" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">No Cora&#231;&#227;o do Mar</span>
+      </span>
+    </a>
+</div>
+                </li>
+                <li class="evntLi ">
+
+<div class="event">
+    <a class="evntLnk" href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/um-senhor-estagiario" onclick="ConteudoLinkGA('EMBREVE', 'Cinema')">
+        <span class="evntMini">
+          <span class="evntAval" id="evntAval">
+            <span class="envtAval qtd mr0">N&#227;o avaliado</span>
+          </span>
+        </span>
+      <img class="evntImg" width="106" height="160" src="https://storage.ingresso.com/img/cinema/cartaz/11291_iphone.jpg" alt="Um Senhor Estagi&#225;rio" onerror="this.src='https://storage.ingresso.com/img/comum/no_image_iphone.jpg'">
+      <br />
+      <span class="evntInfoTpEvento00000001">
+        <span class="title">Um Senhor Estagi&#225;rio</span>
+      </span>
+    </a>
+</div>
+                </li>
+        </ul>
+    </div>
+
+<script type="text/javascript">
+    function checkWidth() {
+        var $window = $(window);
+        var $owldemo = $('#owl-demo');
+
+        var windowsize = $window.width();
+        if (windowsize < 800) {
+            $('.eventLt').each(function () {
+                $(this).attr('id', 'owl-demo');
+
+                $(this).owlCarousel({
+                    items: 5,
+                    itemsDesktopSmall: [768, 4],
+                    itemsTablet: [570, 3],
+                    itemsMobile: [480, 1],
+                    navigation: true,
+                    navigationText: false,
+                });
+            });
+        }
+        else {
+            $('.eventLt').each(function () {
+                if ($(this).data('owlCarousel') != undefined) {
+                    $(this).data('owlCarousel').destroy();
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        // Execute on load
+        checkWidth();
+        // Bind event listener
+        $(window).resize(checkWidth);
+    });
+
+    $(window).on('resize', function () {
+        checkWidth();
+    });
+</script>
+
+
+<script type="text/javascript">
+    function checkWidth() {
+        var $window = $(window);
+        var $owldemo = $('#owl-demo');
+
+        var windowsize = $window.width();
+        if (windowsize < 800) {
+            $('.eventLt').each(function () {
+                $(this).attr('id', 'owl-demo');
+
+                $(this).owlCarousel({
+                    items: 5,
+                    itemsDesktopSmall: [768, 4],
+                    itemsTablet: [570, 3],
+                    itemsMobile: [480, 1],
+                    navigation: true,
+                    navigationText: false,
+                });
+            });
+        }
+        else {
+            $('.eventLt').each(function () {
+                if ($(this).data('owlCarousel') != undefined) {
+                    $(this).data('owlCarousel').destroy();
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        // Execute on load
+        checkWidth();
+        // Bind event listener
+        $(window).resize(checkWidth);
+    });
+
+    $(window).on('resize', function () {
+        checkWidth();
+    });
+</script>
+
+
+<script type="text/javascript">
+    function checkWidth() {
+        var $window = $(window);
+        var $owldemo = $('#owl-demo');
+
+        var windowsize = $window.width();
+        if (windowsize < 800) {
+            $('.eventLt').each(function () {
+                $(this).attr('id', 'owl-demo');
+
+                $(this).owlCarousel({
+                    items: 5,
+                    itemsDesktopSmall: [768, 4],
+                    itemsTablet: [570, 3],
+                    itemsMobile: [480, 1],
+                    navigation: true,
+                    navigationText: false,
+                });
+            });
+        }
+        else {
+            $('.eventLt').each(function () {
+                if ($(this).data('owlCarousel') != undefined) {
+                    $(this).data('owlCarousel').destroy();
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        // Execute on load
+        checkWidth();
+        // Bind event listener
+        $(window).resize(checkWidth);
+    });
+
+    $(window).on('resize', function () {
+        checkWidth();
+    });
+</script>               </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+        </div>
+        <aside id="area-2-2">
+
+
+<div class="adSenseLat">
+    <!-- ingresso_home|internas_300x250_1 -->
+    <div id='div-gpt-ad-1348690411007-4' style='width:336px; height:280px;'>
+        <script type="text/javascript">
+            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1348690411007-4'); });
+        </script>
+    </div>
+</div>
+
+
+
+
+
+
+    <section class="agendaBx">
+        <div class="tabsBx">
+          <ul class="tabs">
+              <li class="tabsLi first selected"><a class="tabsLiLnk" href="#item1"><span class="day">6/9</span><span class="wDay">dom</span></a></li>
+        </ul>
+            <div class="activeTabs">
+            <ul class="contTabs">
+              <li class="tabCont selected" id="ditem1">
+                <div class="agenda">
+                  <ul class="agendaLt">
+                                    <li class="agendaLi tipoEvento1 tipoEvento6">
+                          <strong class="tit"><a href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/love/#/data=20150906" class="tipoEvento1Lnk">Love</a></strong>
+                          <span class="on">Em cartaz em <span class="cin"><a href="#" class="cinLnk">1 Cinema</a></span></span>
+                      </li>
+                                    <li class="agendaLi tipoEvento1 tipoEvento6">
+                          <strong class="tit"><a href="http://www.ingresso.com/aracatuba/home/espetaculo/cinema/corrente-do-mal/#/data=20150906" class="tipoEvento1Lnk">Corrente do mal</a></strong>
+                          <span class="on">Em cartaz em <span class="cin"><a href="#" class="cinLnk">1 Cinema</a></span></span>
+                      </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+<script type="text/javascript">
+    var posAtual = 0;
+    var posRemovido;
+    var posAdicionado;
+
+    var abas = $("section.agendaBx").find(".tabsLi");
+
+    var desliza = function (sentido) {
+        var ultimo;
+        if (sentido < 0) {
+            posAtual -= 1;
+            for (i = 0; i < abas.size() ; i++) {
+                if (abas[i].hidden){
+                    ultimo = i;
+                }
+                else
+                    break;
+            }
+
+            // Não estou na primeira data disponivel no calendário
+            if (typeof ultimo != "undefined") {
+                $(abas[ultimo]).show();
+                abas[ultimo].hidden = false;
+                $(abas[ultimo + 5]).hide();
+                abas[ultimo + 5].hidden = true;
+                if ($(abas[ultimo + 5]).hasClass("selected")) {
+                    $(abas[ultimo + 4]).click();
+                }
+                posRemovido = ultimo + 5;
+                posAdicionado = ultimo;
+            }
+        } else {
+            posAtual += 1;
+            for (i = abas.size() - 1; i >= 0  ; i--) {
+                if (abas[i].hidden)
+                    ultimo = i;
+                else
+                    break;
+            }
+            if (typeof ultimo != "undefined") {
+                $(abas[ultimo]).show();
+                abas[ultimo].hidden = false;
+                $(abas[ultimo - 5]).hide();
+                abas[ultimo - 5].hidden = true;
+                if ($(abas[ultimo - 5]).hasClass("selected")){
+                    $(abas[ultimo - 4]).click();
+                }
+                posRemovido = ultimo - 5;
+                posAdicionado = ultimo;
+            }
+        }
+
+        $("button").removeClass("desabilitado");
+
+        if (posAdicionado == 0)
+            $("button.setaEsq").addClass("desabilitado");
+        else if (posAdicionado == abas.size() - 1)
+            $("button.setaDir").addClass("desabilitado");
+
+    };
+
+    for (i = 5; i < abas.size() ; i++) {
+        $(abas[i]).hide();
+        abas[i].hidden = true;
+    }
+
+    if (abas.size() > 5) {
+        $("section.agendaBx").find("div.tabsBx").prepend('<button type="button" class="setaDir setasCarrosel" onClick="desliza(1)"></button>');
+        $("section.agendaBx").find("div.tabsBx").prepend('<button type="button" class="setaEsq setasCarrosel" onClick="desliza(-1)"></button>');
+        $("section.agendaBx").find("ul.tabs").addClass('carroselAbas');
+        $("section.agendaBx").addClass('calendarioCarrosel');
+    }
+
+    $("button.setaEsq").addClass("desabilitado");
+</script>
+
+
+
+<div class="adSenseLat">
+  <!-- br_selo01 -->
+  <div id='div-gpt-ad-1348690411007-5' style='margin:15px 0 0 0;'>
+        <script type="text/javascript">
+            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1348690411007-5'); });
+        </script>
+  </div>
+
+  <!-- br_selo02 -->
+  <div id='div-gpt-ad-1348690411007-6' style='margin:15px 0 0 0;'>
+        <script type="text/javascript">
+            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1348690411007-6'); });
+        </script>
+  </div>
+
+  <!-- br_selo03 -->
+  <div id='div-gpt-ad-1348690411007-7' style='margin:15px 0 0 0;'>
+        <script type="text/javascript">
+            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1348690411007-7'); });
+        </script>
+  </div>
+</div>
+
+            <section class="facebookOuter">
+    <div class="facebookInner">
+        <div class="fb-like-box" id="fb-like-box"
+            data-width="335" data-height="260"
+            data-href="http://www.facebook.com/ingressocom"
+            data-border-color="#F4F4F4" data-show-faces="true"
+            data-stream="false" data-header="false">
+        </div>
+    </div>
+</section>
+
+
+<div class="adSenseLatIngresso">
+    <!-- br_pagina_300x600 -->
+    <div id='div-gpt-ad-1418823992406-22'>
+        <script type='text/javascript'>
+            googletag.cmd.push(function () { googletag.display('div-gpt-ad-1418823992406-22'); });
+        </script>
+    </div>
+</div>
+
+        </aside>
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        submitDito("acessou-home", [] );
+    });
+</script>
+        </div>
+        <footer>
+
+
+
+<footer class="footer">
+    <section class="canaisFooter">
+        <div class="contentFooter">
+            <div class="televendasFooter canais">
+                <span class="icon-phone"></span>
+                <div class="contentTelevendas">
+                    <h3 class="titCanais">Televendas</h3>
+                    <a id="TelefoneTelevendas" href="tel:40032330" class="telAtendimento">4003-2330</a>
+                    <h4 class="txtTelevendas"> Exceto Cinema </h4>
+                </div>
+            </div>
+            <div class="appsFooter canais">
+                <h3 class="titCanais">Baixe nossos aplicativos!</h3>
+                <ul class="appBoxes">
+                    <li class="appBox appAndroid">
+                        <a id="LinkAppAndroidFooter" class="lnk-app" target="_blank" href="https://play.google.com/store/apps/details?id=br.eti.faces.ingresso&amp;feature=search_result#?t=W251bGwsMSwxLDEsImJyLmV0aS5mYWNlcy5pbmdyZXNzbyJd">
+                            <span class="icones-desktop icone-svg-android"></span>
+                            <span class="icones-mobile icon-android"></span>
+                        </a>
+                    </li>
+                    <li class="appBox appIphone">
+                        <a id="LinkAppiPhoneFooter" class="lnk-app" target="_blank" href="http://itunes.apple.com/br/app/ingresso-com/id395159864?mt=8">
+                            <span class="icones-desktop icone-svg-apple"></span>
+                            <span class="icones-mobile icon-apple"></span>
+                        </a>
+                    </li>
+                    <li class="appBox appWindowsPhone">
+                        <a id="LinkAppWindowsPhoneFooter" class="lnk-app" target="_blank" href="http://www.windowsphone.com/pt-br/store/app/ingresso-com/1d9fc1b7-da21-4c13-a12e-7150f32fab37">
+                            <span class="icones-desktop icone-svg-windows8"></span>
+                            <span class="icones-mobile icon-windows8"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="midiasFooter canais">
+                <h3 class="titCanais">Siga-nos!</h3>
+                <ul class="midiasSociais">
+                    <li class="midia facebook">
+                        <a id="LinkFacebookFooter" target="_blank" href="http://facebook.com/ingressocom/" class="midiasLnk facebookLnk">facebook</a>
+                    </li>
+                    <li class="midia youtube">
+                        <a id="LinkYoutubeFooter" target="_blank" href="http://youtube.com/user/Ingressocom" class="midiasLnk youtubeLnk">youtube</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <nav class="footerLnks">
+        <section class="contentFooterLnks">
+            <div class="categoriaMenu categoriaFooter">
+                <h3 class="titCanais">Menu</h3>
+                <ul  class="linksFooter linksMenu">
+
+            <li class="itemLinkFooter">
+                <a class="lnkFooter" href="http://www.ingresso.com/aracatuba/home/cinema" onclick="MenuSessaoFooter('Cinema')">Cinema</a>
+            </li>
+            <li class="itemLinkFooter">
+                <a class="lnkFooter" href="http://www.ingresso.com/aracatuba/home/promocao" onclick="MenuSessaoFooter('Promo&#231;&#227;o')">Promo&#231;&#227;o</a>
+            </li>
+
+                </ul>
+            </div>
+            <div class="categoriaInstitucional categoriaFooter">
+                <h3 class="titCanais">Institucional</h3>
+                <ul class="linksFooter linksInstitucionais">
+                    <li class="itemLinkFooter"><a id="SobreIngressoFooter" class="lnkFooter" href="http://www.ingresso.com/aracatuba/home/institucional/sobre">Sobre a Ingresso.com</a></li>
+                    <li class="itemLinkFooter"><a id="PrivacidadeSegurancaFooter" class="lnkFooter" href="http://www.ingresso.com/aracatuba/home/institucional/privacidade-seguranca">Privacidade e Segurança</a></li>
+                    <li class="itemLinkFooter"><a id="PontosVendaFooter" class="lnkFooter" href="http://www.ingresso.com/aracatuba/home/institucional/pontos-venda">Pontos de Venda</a></li>
+                    <li class="itemLinkFooter"><a id="AssessoriaImprensaFooter" class="lnkFooter" href="http://www.ingresso.com/aracatuba/home/institucional/assessoria-imprensa">Assessoria de Imprensa</a></li>
+                    <li class="itemLinkFooter"><a id="AnuncieFooter" class="lnkFooter" href="http://www.ingresso.com/aracatuba/home/institucional/anuncie">Anuncie</a></li>
+                    <li class="itemLinkFooter"><a id="TrabalheConoscoFooter" class="lnkFooter" target="_blank" href="https://www.vagas.com.br/b2w">Trabalhe Conosco</a></li>
+                    <li class="itemLinkFooter"><a id="VendaConoscoFooter" class="lnkFooter" href="http://www.ingresso.com/aracatuba/home/institucional/venda-conosco">Venda Conosco</a></li>
+                </ul>
+            </div>
+            <div class="categoriaProdutos categoriaFooter">
+                <h3 class="titCanais">Produtos</h3>
+                <ul class="linksFooter linksProdutos">
+                    <li class="itemLinkFooter"><a id="ValePresenteFooter" class="lnkFooter" href="http://www.ingresso.com/aracatuba/home/produtos/vale-presente">Vale Presente</a></li>
+                    <li class="itemLinkFooter"><a id="IngressoPrePagoFooter" class="lnkFooter" href="http://www.ingresso.com/aracatuba/home/produtos/ingresso-pre-pago">Ingresso Pré-pago</a></li>
+                </ul>
+            </div>
+            <div class="categoriaDuvidas categoriaFooter">
+                <h3 class="titCanais">Dúvidas</h3>
+                <ul class="linksFooter linksDuvidas">
+                    <li class="itemLinkFooter"><a id="AtendimentoFooter" class="lnkFooter" href="http://www.ingresso.com/aracatuba/home/institucional/atendimento/">Atendimento</a></li>
+                    <li class="itemLinkFooter"><a id="AlertaEmailsFalsosFooter" class="lnkFooter" href="http://www.ingresso.com/aracatuba/home/institucional/alerta-emails-sites-falsos">Alerta de e-mails e sites falsos</a></li>
+                    <li class="itemLinkFooter"><a id="ProconFooter" class="lnkFooter" target="_blank" href="http://www.procon.rj.gov.br/">Procon-RJ</a></li>
+                </ul>
+            </div>
+            <div id="stayInfo">
+                <div id="fiqueInformadoEmailBx" class="categoriaNews categoriaFooter">
+                    <h3 class="titCanais">Receba as nossas novidades!</h3>
+                    <fieldset id="email-cadastro" class="emailFs">
+                        <input id="emailNews" type="email" class="inputNews" placeholder="seuemail@email.com.br">
+                        <button id="cadastrarNews" type="button" class="btnNews">Cadastrar</button>
+                        <a href="#msg-erro-email" id="erro-email"></a>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="categoriaCartoes categoriaFooter">
+                <h3 class="titCanais">Você pode comprar com:</h3>
+                <span class="iconesCartao"></span>
+            </div>
+            <div class="categoriaCertificados categoriaFooter">
+                <h3 class="titCanais">Certificados:</h3>
+                    <div id="armored_website">
+                        <param id="aw_preload" value="true" />
+                        <param id="aw_use_cdn" value="true" />
+                    </div>
+                    <script type="text/javascript" src="//cdn.siteblindado.com/aw.js"></script>
+            </div>
+
+
+        </section>
+    </nav>
+    <section class="footerBottom">
+        <p class="copyright">Ingresso.com Ltda / CNPJ: 008606400001-71 / Endereço: Rua Sacadura Cabral, 102 - Rio de Janeiro, RJ - 20081-902 / <a id="AtendimentoFooterEndereco" class="lnkFooter" href="http://www.ingresso.com/aracatuba/home/institucional/atendimento/">Atendimento ao cliente</a></p>
+        <p class="copyright">&copy; Copyright Ingresso.com - todos os direitos reservados</p>
+    </section>
+</footer>
+<div id="msg-erro-email" class="mfp-hide">
+    <span class="icon-notification"></span>
+    <p>Informe um e-mail válido para se cadastrar.</p>
+</div>
+        </footer>
+    </div>
+
+
+    <script type="text/javascript" src="/scripts/utils-8da9518b.min.js"></script>
+    <script src="/scripts/Filtro-859e3b28.min.js" type="text/javascript"></script>
+<script src="/scripts/CARDITEM_HORIZONTAL_DETALHES-c75782fc.min.js" type="text/javascript"></script>
+<script src="/scripts/Header-b5b22ae1.min.js" type="text/javascript"></script>
+<script src="/scripts/TrocaCidadeHeader-39b37b66.min.js" type="text/javascript"></script>
+<script src="/scripts/FiqueInformado-5475235d.min.js" type="text/javascript"></script>
+
+
+    <script>
+        function VerificaLogin() {
+            if ($("#accLogout").length === 0) {
+                if ($.cookie("token")) {
+
+                    $("#hdMiddleContainer").removeClass("hdMiddle");
+                    $("#hdMiddleContainer").addClass("hdMiddleLogado");
+                    $("#hdBottomContainer").removeClass("hdBottom");
+                    $("#hdBottomContainer").addClass("hdBottomLogado");
+
+                    $("#liTicket").removeClass("myTicket");
+                    $("#liTicket").addClass("myAcc");
+                    $(".usrMenu").append("<li class='usrMenuli accLogout' id='accLogout'><a id='SairHead' class='logout-lnk' href='https://wwws.ingresso.com/cliente/#/logout'><span class='icon-cancel-circle'></span> Sair</a></li>");
+                }
+            }
+        }
+
+        VerificaLogin();
+    </script>
+
+
+
+<script>
+    var urlHome = 'http://www.ingresso.com/aracatuba/home';
+    var urlVerificaLogin = 'https://wwws.ingresso.com/aracatuba/home/login/verificalogin';
+    var urlValidaVendaEmpresa = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validavendaempresa';
+    var urlVendaEmpresa = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/vendaempresa';
+    var urlValidaVivoValoriza = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validavivovaloriza';
+    var urlVivoValoriza = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/vivovaloriza';
+    var urlValidaMeiaBradesco = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validameiabradesco';
+    var urlMeiaBradesco = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/meiabradesco';
+    var urlNet = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/meianet';
+    var urlValidaMeiaNet = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validameianet';
+    var urlValidaSuperSaver = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validasupersaver';
+    var urlSuperSaver = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/supersaver';
+    var urlValidaCinemarkMania = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validacinemarkmania';
+    var urlCinemarkMania = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/cinemarkmania';
+    var urlValidaMastercardSurpreenda = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/validamastercardsurpreenda';
+    var urlMastercardSurpreenda = 'http://www.ingresso.com/aracatuba/home/validacaotipoingresso/mastercardsurpreenda';
+    var urlCarregaMapaLocais = 'http://www.ingresso.com/aracatuba/home/componentes/carregapontosmapa';
+    var urlGravaFavorito = 'https://wwws.ingresso.com/aracatuba/home/local/grava-favorito';
+    var urlExcluirFavorito = 'https://wwws.ingresso.com/aracatuba/home/local/exclui-favorito';
+    var urlBuscaFavoritos = 'https://wwws.ingresso.com/aracatuba/home/local/busca-favoritos';
+    var urlBuscaPontosVenda = 'http://www.ingresso.com/aracatuba/home/institucional/pontos-venda/busca-pontos-venda';
+    var urlRecuperaDadosFiltro = 'http://www.ingresso.com/aracatuba/home/filtro/recuperadadosfiltro';
+    var urlEscolhaMapaAssentos = '/sessao/mapa-assentos';
+    var urlSessaoMapaAssentosApi = '/sessao/mapa-assentos-api';
+    var urlEscolhaBuscaPlanta = '/sessao/mapa-planta';
+    var urlEscolhaBuscaPlantaNova = '/sessao/mapa-planta-nova';
+    var urlEscolhaListarIngressos = '/sessao/ingressos';
+    var urlEscolhaAdicionaDesconto = 'https://wwws.ingresso.com/aracatuba/home/escolha/adicionadesconto';
+    var urlHomeEnviarFiqueInformado = 'http://www.ingresso.com/aracatuba/home/home/enviarfiqueinformado';
+    var urlHotsiteBuscaSessaoExterna = 'http://www.ingresso.com/aracatuba/home/hotsite/buscasessaoexterna';
+    var urlLocalRecuperarComentarios = 'http://www.ingresso.com/aracatuba/home/local/recuperarcomentarios';
+    var urlLocalInserirComentario = 'https://wwws.ingresso.com/aracatuba/home/local/inserircomentario';
+    var urlEspetaculoInserirComentario = 'https://wwws.ingresso.com/aracatuba/home/espetaculo/inserircomentario';
+    var urlEspetaculoComentarios = 'http://www.ingresso.com/aracatuba/home/Espetaculo/Comentarios';
+    var urlPromocaoCadastrarResposta = 'https://wwws.ingresso.com/aracatuba/home/promocao/cadastrarresposta';
+    var urlEspetaculoEnviarIndicar = 'http://www.ingresso.com/aracatuba/home/espetaculo/enviarindicar';
+    var urlEspetaculoHorarios = '/aracatuba/home/espetaculo/horarios';
+    var urlEspetaculoDetalheSessao = '/aracatuba/home/espetaculo/detalhe-sessao';
+    var urlEspetaculoListarIngressos = '/aracatuba/home/espetaculo/listar-ingressos';
+    var urlEspetaculoVerificaUsuario = 'https://wwws.ingresso.com/aracatuba/home/espetaculo/verifica-usuario';
+    var urlLogin = 'https://wwws.ingresso.com/cliente/#/';
+</script>
+
+</body>
+</html>

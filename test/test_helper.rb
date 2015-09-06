@@ -25,4 +25,11 @@ class MiniTest::Test
   def after
     DatabaseCleaner.clean
   end
+
+  def respond_with_file(file_name)
+    file = File.open(File.expand_path("../support/#{ file_name }", __FILE__))
+    response = file.read.to_s
+    file.close
+    response
+  end
 end

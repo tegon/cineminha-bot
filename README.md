@@ -1,2 +1,2 @@
-# ingresso-bot
-Telegram bot which tells the movie sessions for you
+# CineminhaBot
+Bot para o Telegram que diz os horários dos filmes na sua cidade.

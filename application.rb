@@ -39,7 +39,7 @@ class CineminhaBot < Sinatra::Application
           when is_city?(message.text)
             keyboard = movies_for_city(message.text).map(&:name)
             answers = Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: keyboard, one_time_keyboard: true)
-            text = 'Aí garoto! Só escolher um filme agora'
+            text = 'Boa jovem! Só escolher um filme agora'
             bot.api.sendMessage(chat_id: message.chat.id, text: text, reply_markup: answers)
           when @last_command && is_city?(@last_command)
             sessions = sessions_for_movie(message.text, @last_command)
