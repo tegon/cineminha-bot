@@ -1,6 +1,8 @@
 language: ruby
 rvm:
   - 2.1.1
+services:
+  - redis-server
 script: "rake test"
 deploy:
   provider: openshift
