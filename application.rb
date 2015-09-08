@@ -12,6 +12,8 @@ class CineminhaBot < Sinatra::Application
 
   before do
     content_type :json
+    request.body.rewind
+    @request_payload = JSON.parse(request.body.read)
   end
 
   helpers do
@@ -20,41 +22,38 @@ class CineminhaBot < Sinatra::Application
     include SessionHelper
   end
 
-  get '/:token' do
-    check_auth_token
+  post '/:token' do
+    api = Api.new(ENV['TELEGRAM_TOKEN'])
+    message = Types::Update.new(@request_payload).message
 
-    Telegram::Bot::Client.run(ENV['TELEGRAM_TOKEN']) do |bot|
-      bot.listen do |message|
-        set_session(message)
+    set_session(message)
 
-        case message.text
-        when /\/estados/
-          text = StatesSerializer.new(states).to_message
-          bot.api.sendMessage(chat_id: message.chat.id, text: text)
-        when /\/cidades/
-          keyboard = states.map(&:name)
-          answers = Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: keyboard, one_time_keyboard: true)
-          text = 'Escolhe um estado aí, pfv'
-          bot.api.sendMessage(chat_id: message.chat.id, text: text, reply_markup: answers)
-        else
-          case
-          when is_city?(message.text)
-            keyboard = movies_for_city(message.text).map(&:name)
-            answers = Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: keyboard, one_time_keyboard: true)
-            text = 'Boa jovem! Só escolher um filme agora'
-            bot.api.sendMessage(chat_id: message.chat.id, text: text, reply_markup: answers)
-          when @last_command && is_city?(@last_command)
-            sessions = sessions_for_movie(message.text, @last_command)
-            text = SessionsSerializer.new(sessions).to_message
-            bot.api.sendMessage(chat_id: message.chat.id, text: text)
-          when @last_command && @last_command.match(/\/cidades/)
-            text = CitiesSerializer.new(cities_for_state(message.text)).to_message
-            bot.api.sendMessage(chat_id: message.chat.id, text: text)
-            session[message.from.id] = nil
-          else
-            bot.api.sendMessage(chat_id: message.chat.id, text: 'vish!')
-          end
-        end
+    case message.text
+    when /\/estados/
+      text = StatesSerializer.new(states).to_message
+      api.sendMessage(chat_id: message.chat.id, text: text)
+    when /\/cidades/
+      keyboard = states.map(&:name)
+      answers = Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: keyboard, one_time_keyboard: true)
+      text = 'Escolhe um estado aí, pfv'
+      api.sendMessage(chat_id: message.chat.id, text: text, reply_markup: answers)
+    else
+      case
+      when is_city?(message.text)
+        keyboard = movies_for_city(message.text).map(&:name)
+        answers = Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: keyboard, one_time_keyboard: true)
+        text = 'Boa jovem! Só escolher um filme agora'
+        api.sendMessage(chat_id: message.chat.id, text: text, reply_markup: answers)
+      when @last_command && is_city?(@last_command)
+        sessions = sessions_for_movie(message.text, @last_command)
+        text = SessionsSerializer.new(sessions).to_message
+        api.sendMessage(chat_id: message.chat.id, text: text)
+      when @last_command && @last_command.match(/\/cidades/)
+        text = CitiesSerializer.new(cities_for_state(message.text)).to_message
+        api.sendMessage(chat_id: message.chat.id, text: text)
+        session[message.from.id] = nil
+      else
+        api.sendMessage(chat_id: message.chat.id, text: 'vish!')
       end
     end
   end
