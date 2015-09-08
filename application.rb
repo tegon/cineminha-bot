@@ -27,7 +27,7 @@ class CineminhaBot < Sinatra::Application
   end
 
   post '/:token' do
-    check_auth_token(params[:token])
+    check_auth_token
 
     api = Telegram::Bot::Api.new(ENV['TELEGRAM_TOKEN'])
     message = Telegram::Bot::Types::Update.new(@request_payload).message
