@@ -73,6 +73,8 @@ class CineminhaBot < Sinatra::Application
         api.sendMessage(chat_id: message.chat.id, text: 'vish!')
       end
     end
+
+    { success: true }.to_json # Telegram needs an body response, otherwise it will resend the message
   end
 
   def states
