@@ -6,7 +6,6 @@ class CineminhaBot < Sinatra::Application
   }
 
   set :cache, Sinatra::Cache::RedisStore.new(redis_server)
-  @session ||= Redis::Store::Factory.create(redis_server.merge(namespace: 'rack:session'))
 
   configure :development do
     register Sinatra::Reloader
@@ -17,7 +16,9 @@ class CineminhaBot < Sinatra::Application
   before do
     content_type :json
     request.body.rewind
-    @request_payload = JSON.parse(request.body.read)
+    body = request.body.read
+    @request_payload = JSON.parse(body) if body && body.length >= 2
+    @session ||= Redis::Store::Factory.create(redis_server.merge(namespace: 'rack:session'))
   end
 
   helpers do
