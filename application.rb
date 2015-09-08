@@ -56,6 +56,7 @@ class CineminhaBot < Sinatra::Application
         api.sendMessage(chat_id: message.chat.id, text: 'vish!')
       end
     end
+    {}.to_json
   end
 
   def states
