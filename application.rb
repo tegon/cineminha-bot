@@ -30,9 +30,7 @@ class CineminhaBot < Sinatra::Application
   post '/:token' do
     api = Telegram::Bot::Api.new(ENV['TELEGRAM_TOKEN'])
     message = Telegram::Bot::Types::Update.new(@request_payload).message
-    p 'session', @session
     store_command_in_session(message)
-    p 'session', @session
 
     case message.text
     when /\/ajuda/
