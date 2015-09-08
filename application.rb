@@ -15,8 +15,7 @@ class CineminhaBot < Sinatra::Application
 
   before do
     content_type :json
-    request.body.rewind
-    body = request.body.read
+    body = request.body.rewind && request.body.read
     @request_payload = JSON.parse(body) if body && body.length >= 2
     @session ||= Redis::Store::Factory.create(redis_server.merge(namespace: 'rack:session'))
   end
@@ -28,6 +27,8 @@ class CineminhaBot < Sinatra::Application
   end
 
   post '/:token' do
+    check_auth_token(params[:token])
+
     api = Telegram::Bot::Api.new(ENV['TELEGRAM_TOKEN'])
     message = Telegram::Bot::Types::Update.new(@request_payload).message
     store_command_in_session(message)
@@ -38,11 +39,10 @@ class CineminhaBot < Sinatra::Application
       E agora, quem poderá nos defender?
       Seguinte, é bem simples, tu envia /cidades.
       Depois escolhe o estado que quer mostrar as cidades.
-      Aí vai aparecer uma linda lista com o nome da cidade: o comando.
+      Aí vai aparecer uma linda lista com o 'nome da cidade: o comando'.
       Ex: Araçatuba: /aracatuba
       Daí tu manda o comando com o nome da cidade. (Calma que tá acabando)
-      Depois vai aparecer a lista com os filmes que estão passando nessa cidade,
-      aí é só escolher um e ser feliz
+      Depois vai aparecer a lista com os filmes que estão passando nessa cidade, aí é só escolher um e ser feliz
       EOS
       api.sendMessage(chat_id: message.chat.id, text: text)
     when /\/estados/
@@ -73,8 +73,6 @@ class CineminhaBot < Sinatra::Application
         api.sendMessage(chat_id: message.chat.id, text: 'vish!')
       end
     end
-
-    { success: true }.to_json
   end
 
   def states

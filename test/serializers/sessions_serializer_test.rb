@@ -16,8 +16,8 @@ class SessionsSerializerTest < Minitest::Test
 
   def test_to_message_output
     output = [
-      "Horário: 22:00\n Sala 3\n Cine Araújo - Nova York\n LEG3D",
-      "Horário: 14:00\n Sala 1\n Cine Araújo - Nova York\n DUB3D"
+      "Horário: 22:00\nSala 3\nCine Araújo - Nova York\nLEG3D",
+      "Horário: 14:00\nSala 1\nCine Araújo - Nova York\nDUB3D"
     ]
     assert_equal output.join("\n \n"), @serializer.to_message
   end

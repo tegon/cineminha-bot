@@ -12,7 +12,7 @@ class SessionsSerializer
         "#{ session.room }",
         "#{ session.cine.name } - #{ session.cine.location }",
         "#{ session.type }"
-      ].join("\n ")
+      ].join("\n")
     end.join("\n \n")
   end
 end
