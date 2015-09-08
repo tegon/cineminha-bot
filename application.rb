@@ -6,7 +6,7 @@ class CineminhaBot < Sinatra::Application
   }
 
   set :cache, Sinatra::Cache::RedisStore.new(redis_server)
-  use Rack::Session::Redis, redis_server: redis_server.merge(namespace: 'rack:session')
+  @session ||= Redis::Store::Factory.create(redis_server.merge(namespace: 'rack:session'))
 
   configure :development do
     register Sinatra::Reloader
@@ -29,9 +29,9 @@ class CineminhaBot < Sinatra::Application
   post '/:token' do
     api = Telegram::Bot::Api.new(ENV['TELEGRAM_TOKEN'])
     message = Telegram::Bot::Types::Update.new(@request_payload).message
-    p 'session', session
+    p 'session', @session
     store_command_in_session(message)
-    p 'session', session
+    p 'session', @session
 
     case message.text
     when /\/ajuda/
@@ -68,7 +68,7 @@ class CineminhaBot < Sinatra::Application
       when @last_command && @last_command.match(/\/cidades/)
         text = CitiesSerializer.new(cities_for_state(message.text)).to_message
         api.sendMessage(chat_id: message.chat.id, text: text)
-        session[message.from.id] = nil
+        @session.del(message.from.id)
       else
         api.sendMessage(chat_id: message.chat.id, text: 'vish!')
       end
