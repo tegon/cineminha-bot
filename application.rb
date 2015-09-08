@@ -1,8 +1,12 @@
 class CineminhaBot < Sinatra::Application
-  options = { host: ENV['OPENSHIFT_REDIS_HOST'], port: ENV['OPENSHIFT_REDIS_PORT'], password: ENV['REDIS_PASSWORD'] }
+  redis_server = {
+    host: ENV['OPENSHIFT_REDIS_HOST'],
+    port: ENV['OPENSHIFT_REDIS_PORT'],
+    password: ENV['REDIS_PASSWORD']
+  }
 
-  set :cache, Sinatra::Cache::RedisStore.new(options)
-  use Rack::Session::Redis, redis_server: options.merge(namespace: 'rack:session')
+  set :cache, Sinatra::Cache::RedisStore.new(redis_server)
+  use Rack::Session::Redis, redis_server: redis_server.merge(namespace: 'rack:session')
 
   configure :development do
     register Sinatra::Reloader
@@ -26,7 +30,7 @@ class CineminhaBot < Sinatra::Application
     api = Telegram::Bot::Api.new(ENV['TELEGRAM_TOKEN'])
     message = Telegram::Bot::Types::Update.new(@request_payload).message
 
-    set_session(message)
+    store_command_in_session(message)
 
     case message.text
     when /\/ajuda/
