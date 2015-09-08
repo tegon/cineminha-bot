@@ -64,6 +64,7 @@ class CineminhaBot < Sinatra::Application
         sessions = sessions_for_movie(message.text, @last_command)
         text = SessionsSerializer.new(sessions).to_message
         api.sendMessage(chat_id: message.chat.id, text: text)
+        @session.del(message.from.id.to_s)
       when @last_command && @last_command.match(/\/cidades/)
         text = CitiesSerializer.new(cities_for_state(message.text)).to_message
         api.sendMessage(chat_id: message.chat.id, text: text)
