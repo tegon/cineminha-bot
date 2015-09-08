@@ -67,7 +67,7 @@ class CineminhaBot < Sinatra::Application
       when @last_command && @last_command.match(/\/cidades/)
         text = CitiesSerializer.new(cities_for_state(message.text)).to_message
         api.sendMessage(chat_id: message.chat.id, text: text)
-        @session.del(message.from.id)
+        @session.del(message.from.id.to_s)
       else
         api.sendMessage(chat_id: message.chat.id, text: 'vish!')
       end
