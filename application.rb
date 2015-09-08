@@ -31,14 +31,14 @@ class CineminhaBot < Sinatra::Application
     case message.text
     when /\/ajuda/
       text = <<-EOS
-        E agora, quem poderá nos defender?
-        Seguinte, é bem simples, tu envia /cidades.
-        Depois escolhe o estado que quer mostrar as cidades.
-        Aí vai aparecer uma linda lista com o nome da cidade: o comando.
-        Ex: Araçatuba: /aracatuba
-        Daí tu manda o comando com o nome da cidade. (Calma que tá acabando)
-        Depois vai aparecer a lista com os filmes que estão passando nessa cidade,
-        aí é só escolher um e ser feliz :heart_eyes:
+      E agora, quem poderá nos defender?
+      Seguinte, é bem simples, tu envia /cidades.
+      Depois escolhe o estado que quer mostrar as cidades.
+      Aí vai aparecer uma linda lista com o nome da cidade: o comando.
+      Ex: Araçatuba: /aracatuba
+      Daí tu manda o comando com o nome da cidade. (Calma que tá acabando)
+      Depois vai aparecer a lista com os filmes que estão passando nessa cidade,
+      aí é só escolher um e ser feliz
       EOS
       api.sendMessage(chat_id: message.chat.id, text: text)
     when /\/estados/
