@@ -34,7 +34,7 @@ class CineminhaBot < Sinatra::Application
     store_command_in_session(message)
 
     case message.text
-    when /\/ajuda/
+    when /\/ajuda/, /\/start/
       text = <<-EOS
       E agora, quem poderá nos defender?
       Seguinte, é bem simples, tu envia /cidades.
