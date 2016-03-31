@@ -12,6 +12,8 @@ class SessionsSerializer
   end
 
   def to_message
+    return empty_message if sessions.empty?
+
     sessions.map do |session|
       [
         "Horário: #{ session.time }",
@@ -20,5 +22,9 @@ class SessionsSerializer
         "#{ type(session) }"
       ].join("\n")
     end.join("\n \n")
+  end
+
+  def empty_message
+    "Eita Giovana! Não achei sessões para esse filme :/"
   end
 end
