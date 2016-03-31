@@ -12,8 +12,6 @@ class SessionsSerializer
   end
 
   def to_message
-    return empty_message if sessions.empty?
-
     sessions.map do |session|
       [
         "Horário: #{ session.time }",

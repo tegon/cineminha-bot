@@ -34,8 +34,9 @@ class Crawler
   end
 
   def sessions_date
-    date = Date.parse(Time.now.to_s) #+ 1
-    date.strftime('%Y%m%d')
+    time = Time.now
+    time += 1 if time.hour > 22 # tomorrow sessions
+    time.strftime('%Y%m%d')
   end
 
   def sessions(movie)
