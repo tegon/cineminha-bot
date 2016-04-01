@@ -10,6 +10,7 @@ gem 'httparty', '0.13.5'
 group :development do
   gem 'tux', '0.3.0'
   gem 'puma', '2.7.1'
+  gem 'pry', '0.10.3'
 end
 
 group :test do
