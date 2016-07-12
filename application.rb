@@ -28,7 +28,7 @@ class CineminhaBot < Sinatra::Application
 
   get '/messenger-webhook' do
     if params['hub.mode'] === 'subscribe' && params['hub.verify_token'] === ENV['MESSENGER_TOKEN']
-      halt 200
+      params['hub.challenge']
     else
       halt 403
     end
