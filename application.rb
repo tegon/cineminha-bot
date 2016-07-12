@@ -34,6 +34,11 @@ class CineminhaBot < Sinatra::Application
     end
   end
 
+  post '/messenger-webhook' do
+    p '=====================', @request_payload
+    p '===================', @session
+  end
+
   post '/:token' do
     check_auth_token
 
