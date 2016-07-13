@@ -105,11 +105,15 @@ img.logo {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 30px;
 }
 
-#politica-de-privacidade p {
+#politica-de-privacidade .description {
   line-height: 25px;
+  margin: 20px 0;
 }
 
 #politica-de-privacidade a {
