@@ -50,6 +50,14 @@ img.logo {
   line-height: 35px;
 }
 
+#inicio a {
+  color: #1B98E0;
+}
+
+#inicio a:hover {
+  color: #AAC6FB;
+}
+
 #exemplo {
   align-items: center;
   display: flex;
