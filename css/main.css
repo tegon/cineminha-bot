@@ -1,0 +1,105 @@
+body {
+  font-family: 'Trebuchet MS';
+}
+
+h1 {
+  color: #FFF;
+  font-size: 100px;
+}
+
+h2 {
+  font-size: 65px;
+}
+
+h3 {
+  font-size: 40px;
+  line-height: 50px;
+}
+
+p {
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+}
+
+img.logo {
+  border-radius: 150px;
+  border: 1px #FFF solid;
+  height: 300px;
+  margin-right: 50px;
+  width: 300px;
+}
+
+#inicio {
+  align-items: center;
+  background-color: #36558F;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+#inicio .info {
+  display: flex;
+  flex-direction: column;
+}
+
+#inicio .info .description {
+  color: #FFF;
+  line-height: 35px;
+}
+
+#exemplo {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+#exemplo .info {
+  display: flex;
+  flex-direction: column;
+}
+
+#exemplo .info .description {
+  line-height: 35px;
+  margin-top: 30px
+}
+
+#politica-de-privacidade {
+  background-color: #6290C8;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+#politica-de-privacidade p {
+  line-height: 25px;
+}
+
+#politica-de-privacidade a {
+  color: #FFF;
+}
+
+#politica-de-privacidade a:hover {
+  color: #006494;
+}
+
+#contato {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+#contato p {
+  line-height: 35px;
+}
+
+#contato a {
+  color: #1B98E0;
+}
+
+#contato a:hover {
+  color: #36558F;
+}
