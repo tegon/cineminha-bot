@@ -23,7 +23,7 @@ class Crawler
   def movies
     response = self.class.get("/#{ @city }/home/filtro/recuperadadosfiltro", query: { tipoevento: 'cinema' })
     response.parsed_response['Espetaculos'].map do |movie|
-      Movie.new(movie['Nome'], movie['Id'])
+      Movie.new(movie['Nome'], movie['Id'], nil)
     end
   end
 
