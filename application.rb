@@ -45,8 +45,8 @@ class CineminhaBot < Sinatra::Application
         page_entry['messaging'].each do |messaging_event|
           case
           when messaging_event['message']
-            senderID = event['sender']['id']
-            message = event['message']
+            senderID = messaging_event['sender']['id']
+            message = messaging_event['message']
 
             if message['text'] == '/ajuda'
               text = <<-EOS
