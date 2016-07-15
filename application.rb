@@ -177,6 +177,29 @@ class CineminhaBot < Sinatra::Application
   end
 
   def received_postback(event)
-    p 'received_postback ===============', event
+    sender_id = event['sender']['id']
+    postback = event['postback']
+    parameters = postback['payload'].split('&')
+    city = nil
+    movie_id = nil
+
+    parameters.each do |p|
+      name, value = p.split('=')
+      if name == 'movie_id' && value
+        movie_id = value
+      elsif name == 'city' && value
+        city = value
+      end
+    end
+
+    if city && movie_id
+      movie = movies_for_city(city).find{ |m| m.id == movie_id }
+      crawler = Crawler.new(city)
+      sessions = crawler.sessions(movie)
+      text = SessionsSerializer.new(sessions).to_message
+
+      message_data = { text: text }
+      FacebookMessenger.send_message(sender_id, message_data)
+    end
   end
 end
