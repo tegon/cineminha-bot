@@ -143,7 +143,7 @@ class CineminhaBot < Sinatra::Application
 
     if city
       crawler = Crawler.new(city.permalink)
-      movies = crawler.movies_with_image.first(10).map do |movie|
+      movies = crawler.movies_with_image.first(2).map do |movie|
         {
           title: movie.name,
           image_url: movie.image,
@@ -154,8 +154,6 @@ class CineminhaBot < Sinatra::Application
           }]
         }
       end
-
-      p 'movies_size =======================', movies
 
       message_data = {
         attachment: {
