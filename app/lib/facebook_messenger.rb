@@ -9,7 +9,7 @@ class FacebookMessenger
   default_params 'access_token' => ENV['MESSENGER_ACCESS_TOKEN']
 
   def send(message_data)
-    response = self.class.post(body: message_data)
+    response = self.class.post('/', body: message_data.to_json)
     p 'send', response.response.body
   end
 end
