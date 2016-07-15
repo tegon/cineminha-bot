@@ -36,7 +36,47 @@ class CineminhaBot < Sinatra::Application
 
   post '/messenger-webhook' do
     p '=====================', @request_payload
-    p '===================', @session
+
+    if @request_payload['object'] == 'page'
+      @request_payload['entry'].each do |page_entry|
+        pageID = page_entry['id']
+        time_of_event = page_entry['time']
+
+        page_entry['messaging'].each do |messaging_event|
+          case
+          when messaging_event['message']
+            senderID = event['sender']['id']
+            message = event['message']
+
+            if message['text'] == '/ajuda'
+              text = <<-EOS
+              E agora, quem poderá nos defender?
+              Seguinte, é bem simples, tu envia /cidades.
+              Depois escolhe o estado que quer mostrar as cidades.
+              Aí vai aparecer uma linda lista com o 'nome da cidade: o comando'.
+              Ex: Araçatuba: /aracatuba
+              Daí tu manda o comando com o nome da cidade. (Calma que tá acabando)
+              Depois vai aparecer a lista com os filmes que estão passando nessa cidade, aí é só escolher um e ser feliz
+              EOS
+
+              message_data = {
+                recipient: {
+                  id: senderID
+                },
+                message: {
+                  text: text
+                }
+              }
+
+              FacebookMessenger.send(message_data)
+            end
+          when messaging_event['postback']
+          end
+        end
+      end
+    end
+
+    halt 200
   end
 
   post '/:token' do
