@@ -36,8 +36,6 @@ class CineminhaBot < Sinatra::Application
   end
 
   post '/messenger-webhook' do
-    p '=====================', @request_payload
-
     if @request_payload['object'] == 'page'
       @request_payload['entry'].each do |page_entry|
         page_entry['messaging'].each do |messaging_event|
@@ -140,8 +138,9 @@ class CineminhaBot < Sinatra::Application
   def received_message(event)
     sender_id = event['sender']['id']
     message = event['message']
-
+    p 'text', message['text']
     city_permalink = parameterize(message['text'])
+    p 'city_permalink', city_permalink
 
     if is_city?(city_permalink)
       crawler = Crawler.new(city_permalink)

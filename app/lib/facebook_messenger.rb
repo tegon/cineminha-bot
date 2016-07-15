@@ -15,6 +15,5 @@ class FacebookMessenger
       },
       message: message_data
     })
-    p 'send', response.response.body
   end
 end
