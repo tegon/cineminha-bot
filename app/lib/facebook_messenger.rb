@@ -8,8 +8,8 @@ class FacebookMessenger
   debug_output $stderr
   default_params 'access_token' => ENV['MESSENGER_ACCESS_TOKEN']
 
-  def send(message_data)
-    response = self.class.post('/', body: message_data.to_json)
+  def self.send_message(message_data)
+    response = post('/', body: message_data)
     p 'send', response.response.body
   end
 end
