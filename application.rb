@@ -138,12 +138,15 @@ class CineminhaBot < Sinatra::Application
   def received_message(event)
     sender_id = event['sender']['id']
     message = event['message']
+
+    return unless message['text']
+
     city_permalink = parameterize(message['text'])
     city = states.map(&:cities).flatten.find{ |c| c.permalink == city_permalink }
 
     if city
       crawler = Crawler.new(city.permalink)
-      movies = crawler.movies_with_image.first(2).map do |movie|
+      movies = crawler.movies_with_image.first(10).map do |movie|
         {
           title: movie.name,
           image_url: movie.image,
@@ -171,5 +174,9 @@ class CineminhaBot < Sinatra::Application
     end
 
     FacebookMessenger.send_message(sender_id, message_data)
+  end
+
+  def received_postback(event)
+    p 'received_postback ===============', event
   end
 end
