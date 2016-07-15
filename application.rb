@@ -142,7 +142,7 @@ class CineminhaBot < Sinatra::Application
     city = states.map(&:cities).flatten.find{ |c| c.permalink == city_permalink }
 
     if city
-      crawler = Crawler.new(city)
+      crawler = Crawler.new(city.permalink)
       movies = crawler.movies_with_image.first(10).map do |movie|
         {
           title: movie.name,
@@ -150,7 +150,7 @@ class CineminhaBot < Sinatra::Application
           buttons: [{
             type: 'postback',
             title: 'Ver sessões',
-            payload: "movie_id=#{movie.id}&city=#{city}"
+            payload: "movie_id=#{movie.id}&city=#{city.permalink}"
           }]
         }
       end
