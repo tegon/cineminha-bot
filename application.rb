@@ -196,7 +196,10 @@ class CineminhaBot < Sinatra::Application
       movie = movies_for_city(city).find{ |m| m.id == movie_id }
       crawler = Crawler.new(city)
       sessions = crawler.sessions(movie).first(10).map do |session|
-        { title: "#{cine} - #{time}", subtitle: "#{room} - #{type}" }
+        {
+          title: "#{session.cine} - #{session.time}",
+          subtitle: "#{session.room} - #{session.type}"
+        }
       end
 
       message_data = {
