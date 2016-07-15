@@ -10,7 +10,9 @@ class FacebookMessenger
 
   def self.send_message(recipient_id, message_data)
     response = post('/', body: {
-      recipient: recipient_id,
+      recipient: {
+        id: recipient_id
+      },
       message: message_data
     })
     p 'send', response.response.body
