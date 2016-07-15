@@ -27,6 +27,17 @@ class Crawler
     end
   end
 
+  def movies_with_image
+    response = self.class.get("/#{ @city }/home")
+    html = Nokogiri::HTML(response.response.body)
+    html.css('#item0 li').map do |movie_html|
+      name = movie_html.css('.title').text
+      id = movie_html.css('a').attr('href').text.split('/').last
+      image = movie_html.css('img').attr('src').text
+      Movie.new(name, id, image)
+    end
+  end
+
   def movie_id(movie)
     response = self.class.get("/#{ @city }/home/espetaculo/cinema/#{ movie.id }")
     html = Nokogiri::HTML(response.response.body)

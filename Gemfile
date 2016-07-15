@@ -6,6 +6,7 @@ gem 'redis-sinatra', '1.4.0'
 gem 'telegram-bot-ruby', '0.2.6'
 gem 'nokogiri', '1.6.6.2'
 gem 'httparty', '0.13.5'
+gem 'activesupport', '4.2.6'
 
 group :development do
   gem 'tux', '0.3.0'

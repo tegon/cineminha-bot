@@ -24,6 +24,7 @@ class CineminhaBot < Sinatra::Application
     include ApplicationHelper
     include CacheHelper
     include SessionHelper
+    include ActiveSupport::Inflector
   end
 
   get '/messenger-webhook' do
@@ -39,59 +40,10 @@ class CineminhaBot < Sinatra::Application
 
     if @request_payload['object'] == 'page'
       @request_payload['entry'].each do |page_entry|
-        pageID = page_entry['id']
-        time_of_event = page_entry['time']
-
         page_entry['messaging'].each do |messaging_event|
           case
-          when messaging_event['message']
-            senderID = messaging_event['sender']['id']
-            message = messaging_event['message']
-
-            case message['text']
-            when '/ajuda'
-              text = 'Para começar, envie /cidades'
-
-              message_data = {
-                recipient: {
-                  id: senderID
-                },
-                message: {
-                  text: text
-                }
-              }
-
-              FacebookMessenger.send_message(message_data)
-            when '/cidades'
-              buttons = states.map do |state|
-                { type: 'postback', title: state.name, payload: state.name }
-              end
-
-              message_data = {
-                recipient: {
-                  id: senderID
-                },
-                message: {
-                  attachment: {
-                    type: 'template',
-                    payload: {
-                      template_type: 'generic',
-                      elements: [
-                        {
-                          title: 'Estados',
-                          subtititle: 'Escolhe um estado aí, pfv',
-                          buttons: buttons
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-
-              FacebookMessenger.send_message(message_data)
-            end
-
-          when messaging_event['postback']
+          when messaging_event['message'] then received_message(messaging_event)
+          when messaging_event['postback'] then received_postback(messaging_event)
           end
         end
       end
@@ -183,5 +135,43 @@ class CineminhaBot < Sinatra::Application
       state = states.find{ |s| s.name == state }
       state.cities
     end
+  end
+
+  def received_message(event)
+    sender_id = event['sender']['id']
+    message = event['message']
+
+    city_permalink = parameterize(message['text'])
+
+    if is_city?(city_permalink)
+      crawler = Crawler.new(city_permalink)
+      movies = crawler.movies_with_image.first(10).map do |movie|
+        {
+          title: movie.name,
+          image_url: movie.image,
+          buttons: [{
+            type: 'postback',
+            title: 'Ver sessões',
+            payload: "movie_id=#{movie.id}&city=#{city_permalink}"
+          }]
+        }
+      end
+
+      message_data = {
+        attachment: {
+          type: 'template',
+          payload: {
+            template_type: 'generic',
+            elements: movies
+          }
+        }
+      }
+    else
+      message_data = {
+        text: 'Cidade não encontrada :/'
+      }
+    end
+
+    FacebookMessenger.send_message(sender_id, message_data)
   end
 end
