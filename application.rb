@@ -155,6 +155,8 @@ class CineminhaBot < Sinatra::Application
         }
       end
 
+      p 'movies_size =======================', movies.size
+
       message_data = {
         attachment: {
           type: 'template',
