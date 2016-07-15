@@ -33,7 +33,7 @@ class Crawler
     html.css('#item0 li').map do |movie_html|
       name = movie_html.css('.title').text
       id = movie_html.css('a').attr('href').text.split('/').last
-      image = movie_html.css('img').attr('src').text
+      image = movie_html.css('img').attr('src').text.gsub('iphone', 'd')
       Movie.new(name, id, image)
     end
   end
