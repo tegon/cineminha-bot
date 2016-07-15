@@ -48,16 +48,9 @@ class CineminhaBot < Sinatra::Application
             senderID = messaging_event['sender']['id']
             message = messaging_event['message']
 
-            if message['text'] == '/ajuda'
-              text = <<-EOS
-              E agora, quem poderá nos defender?
-              Seguinte, é bem simples, tu envia /cidades.
-              Depois escolhe o estado que quer mostrar as cidades.
-              Aí vai aparecer uma linda lista com o 'nome da cidade: o comando'.
-              Ex: Araçatuba: /aracatuba
-              Daí tu manda o comando com o nome da cidade. (Calma que tá acabando)
-              Depois vai aparecer a lista com os filmes que estão passando nessa cidade, aí é só escolher um e ser feliz
-              EOS
+            case message['text']
+            when '/ajuda'
+              text = 'Para começar, envie /cidades'
 
               message_data = {
                 recipient: {
@@ -69,7 +62,33 @@ class CineminhaBot < Sinatra::Application
               }
 
               FacebookMessenger.send_message(message_data)
+            when '/cidades'
+              buttons = states.map do |state|
+                { type: 'postback', title: state.name, payload: state.name }
+              end
+
+              message_data = {
+                recipient: {
+                  id: senderID
+                },
+                message: {
+                  attachment: {
+                    type: 'template',
+                    payload: {
+                      template_type: 'generic',
+                      elements: [
+                        {
+                          title: 'Estados',
+                          subtititle: 'Escolhe um estado aí, pfv',
+                          buttons: buttons
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
             end
+
           when messaging_event['postback']
           end
         end
