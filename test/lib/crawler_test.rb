@@ -36,7 +36,7 @@ class CrawlerTest < Minitest::Test
   end
 
   def test_movie_id_parser
-    movie = Movie.new('Ted 2', 'ted-2')
+    movie = Movie.new('Ted 2', 'ted-2', nil)
 
     stub_request(:get, "http://www.ingresso.com/aracatuba/home/espetaculo/cinema/#{ movie.id }")
       .to_return(
@@ -48,7 +48,7 @@ class CrawlerTest < Minitest::Test
   end
 
   def test_sessions_parser
-    movie = Movie.new('Ted 2', 'ted-2')
+    movie = Movie.new('Ted 2', 'ted-2', nil)
 
     stub_request(:get, "http://www.ingresso.com/aracatuba/home/espetaculo/cinema/#{ movie.id }")
       .to_return(

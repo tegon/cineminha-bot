@@ -2,7 +2,7 @@ require 'test_helper'
 
 class MovieTest < Minitest::Test
   def setup
-    @movie = Movie.new('Minions', 'minions')
+    @movie = Movie.new('Minions', 'minions', nil)
   end
 
   def test_that_name_is_set
