@@ -68,7 +68,7 @@ class CineminhaBot < Sinatra::Application
                 }
               }
 
-              FacebookMessenger.send(message_data)
+              FacebookMessenger.send_message(message_data)
             end
           when messaging_event['postback']
           end
