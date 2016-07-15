@@ -195,10 +195,20 @@ class CineminhaBot < Sinatra::Application
     if city && movie_id
       movie = movies_for_city(city).find{ |m| m.id == movie_id }
       crawler = Crawler.new(city)
-      sessions = crawler.sessions(movie)
-      text = SessionsSerializer.new(sessions).to_message
+      sessions = crawler.sessions(movie).first(10).map do |session|
+        { title: "#{cine} - #{time}", subtitle: "#{room} - #{type}" }
+      end
 
-      message_data = { text: text }
+      message_data = {
+        attachment: {
+          type: 'template',
+          payload: {
+            template_type: 'generic',
+            elements: sessions
+          }
+        }
+      }
+
       FacebookMessenger.send_message(sender_id, message_data)
     end
   end
