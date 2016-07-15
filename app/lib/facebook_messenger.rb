@@ -14,6 +14,6 @@ class FacebookMessenger
         id: recipient_id
       },
       message: message_data
-    })
+    }.to_json)
   end
 end
