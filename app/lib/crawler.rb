@@ -46,7 +46,7 @@ class Crawler
 
   def sessions_date
     time = Time.now
-    time += 1 if time.hour > 22 # tomorrow sessions
+    time += (1 * 60 * 60) * 2 if time.hour >= 22 # tomorrow sessions
     time.strftime('%Y%m%d')
   end
 
