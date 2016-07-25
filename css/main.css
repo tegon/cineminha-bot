@@ -70,30 +70,20 @@ img.logo {
 }
 
 #exemplo {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-direction: column;
   padding: 30px;
 }
 
-#exemplo .info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+#exemplo h2 {
+  text-align: center;
 }
 
-#exemplo .info .description {
-  line-height: 35px;
-  margin-top: 30px
+#exemplo p {
+  line-height: 50px;
+  font-size: 25px;
 }
 
 #politica-de-privacidade {
@@ -161,4 +151,51 @@ img.logo {
 
 #contato a:hover {
   color: #36558F;
+}
+
+.tabs {
+  position: relative;
+  clear: both;
+  min-height: 1080px;
+  margin-top: 40px;
+}
+
+.tab {
+  float: left;
+}
+
+.tab [type=radio] {
+  display: none;
+}
+
+[type=radio] ~ label {
+  background: white;
+  border: 2px solid #6290CB;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  color: #6290CB;
+}
+
+[type=radio]:checked ~ label {
+  background: #6290CB;
+  color: white;
+  z-index: 2;
+}
+
+[type=radio]:checked ~ label ~ .content {
+  z-index: 1;
+}
+
+.content {
+  background: white;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
 }
